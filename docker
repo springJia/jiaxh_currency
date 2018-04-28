@@ -1,0 +1,23 @@
+docker启动进程：
+
+mysql：
+
+docker run --name some-mysql -p 0.0.0.0:3306:3306 -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag
+
+
+
+Redis:
+
+docker run -p 6379:6379 --name redis -d redis
+
+
+
+Rabbitmq:
+
+docker run -d --hostname my-rabbit --name rabbitmq --net=host rabbitmq:3-management
+
+
+docker run -d --name rabbitmq -p 15672:15672 -p 5672:5672 rabbitmq:3-management
+
+
+docker ps -a

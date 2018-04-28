@@ -1,0 +1,31 @@
+发布项目：
+1.ssh root@47.52.247.51
+2.pm2 l
+3.cd sources/bisale_wallet_gateway/  进入项目路径
+4.git pull && git submodule foreach git pull origin staging && yarn && yarn build  更新代码并build
+5.pm2 reload/start bisale_wallet_gateway 重启代码
+6.pm2 logs bisale_wallet_gateway  查看日志是否启动成功
+
+
+//四台服务器如下：
+test_wallet_server1  47.52.247.51  172.31.48.184
+nginx、网关、redis、rabbitmq1、对账程序、haproxy
+
+test_wallet_server2  47.75.12.124  172.31.48.185
+eth系监听、eth提现consumer、ndx提现consumer、consumer、rabbitmq2
+eth系扫币、btc监听、btc提现consumer、btc扫币、bch监听、bch提现、bch扫币
+
+test_wallet_server3  47.91.214.201  172.31.48.186
+私钥管理程序3000、usdt
+
+test_wallet_server4  47.75.12.46  172.31.48.182
+eth节点 8545、bch节点 18332 18333、btc节点1 18334 18335、btc节点2 18336 18337、xrp节点 51233(ws) 51234、ltc节点 18338 18339
+
+// 接口
+47.52.247.51/wallet_api/v1
+test
+test
+
+47.52.247.51/btc
+test
+123456789

@@ -1,0 +1,13 @@
+git checkout -b add_ltc 生成add_ltc分支
+git reset --soft HEAD~1  撤销commit
+git reset . //撤销git add .
+git stash   //将改变放入垃圾桶
+git stash pop //从垃圾桶中恢复改变
+git checkout -d add_ltc 删除add_ltc分支
+git remote set-url origin https://www.xxx.com/xxx/xxx.git 连接远程的git
+git submodule sync && git submodule update --init --recursive --remote  更新子模块
+git commit --amend 合并commit
+
+git config --file=.gitmodules submodule.src/common.url git@git.bisale.org:wallet/bisale_wallet_common.git
+
+npm publish --tag latest

@@ -1,0 +1,5 @@
+CONFIG_FILE 路径 pm2 start pm2相对路径  CONFIG_FILE="/Users/jiaxh/bisale_project/bisale_wallet_btcchainlike_listener/src/config/development.json" pm2 start pm2/pm2_staging_btcchain.json
+pm2 restart +project_name
+pm2 logs +project_name
+pm2 l 查看记录
+pm2 reload _project_name 加载/重启 某个项目

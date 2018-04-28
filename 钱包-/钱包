@@ -1,0 +1,40 @@
+现有货币类型：BTC,ETH,LTC,BCH,XRP,USDT
+BTC/BCH/LTC 同一类
+BTC/XRP 在同一链
+这个地址可以获取eth测试币：https://gitter.im/kovan-testnet/faucet
+btc/bch/ltc：有缓存区
+xrp:没有缓存区
+
+support_currency：deposit_confirmation代表确认数达到改值时显示到账，withdraw_confirmation代表当某用户提现时只有确认数达到withdraw_confirmation值时才可以提现
+
+bisale_wallet_comsumer项目---->事件结果处理器
+bisale_wallet_xrpchainlike_withdraw_tesk项目--->提现接受者(检查ref_id发布事件添加ref_id) 状态从11-->13
+
+提现流程：不能重复提现，要检验redis中的放重refID和withdraw_history中的refID记录；提现不需要更新确认数
+
+   1.bisale_wallet_xrpchainlike_withdraw_tesk项目，从数据库表(deposit_withdraw)中获取{type:2,status:11}的记录，并发布onWithdrawNew，有新提现的消息队列；
+     同时，记录事件到redis
+   2.bisale_wallet_xrpchainlike_withdraw项目，消费消息队列中的onWithdrawNew，先确认是否有重复提现，如果否折提现到用户钱包-->发送已完成提现的消息队列onWithdrawFinished
+   3.bisale_wallet_comsumer项目,消费消息队列中的onWithdrawFinished消息，成功：deposit_withdraw表更新且状态为13改为16，插入withdraw_history该记录
+                                                                    失败：deposit_withdraw表更新且状态为13改为17，并移除双重校验的redis
+   4.bisale_wallet_xrpchainlike_listener项目,监听到区块中的该交易texid,获取交易信息，插入/更新deposit_withdraw表中的该记录信息,并insert到chain_withdraw
+   5.bisale_wallet_comsumer项目,消费消息队列中的withdraw.allCoin.onWithdrawFound消息，更新deposit_withdraw和表withdraw_history中网络费(eth系列需要)
+
+
+监听流程：
+
+
+扫币流程：扫币：充值完成后达到3个条件后才扫币，查看scan_history并且到公网查看网络手续费
+    1.btc系列要消费消息队列中的扫币事件onScan，完成交易，更新scan_history中的记录
+    2.xrp没有扫币事件，轮询充值地址是否达到最大扫币值，如果是则扫币，更新scan_history 中的记录
+    3.bisale_wallet_comsumer项目,消费消息队列中的withdraw.allCoin.onScanFound消息，更新scan_history中网络费(eth系列需要)
+
+
+充值流程：
+    1.用户充值到我们提供的充值地址中币
+    2.bisale_wallet_xrpchainlike_listener项目检查到充值，
+
+
+
+
+

@@ -1,0 +1,90 @@
+stellar (XLM)新的xlm以每年1％的速度添加到网络中；协议每周将这些xlm分配给任何帐户，该帐户可以从网络中的其他帐户中获得“投票”的0.05％以上。
+投票根据投票账户持有的xlm数量进行加权，例如：如果A账户持有120xlm并将其inflation的目的地设为B, 则网络对B计数120票。
+每周发布一次新xlm.当通货膨胀运行时，节点执行以下算法：
+
+1.计算inflation pool的（存在流明数）*（每周通货膨胀率）+手续费池。
+2.计算MIN_VOTE（现有流明数）*。0005。这是现有流明的0.05％，即获得通胀池任何部分所需的最低票数。
+3.根据每个账户设定的通胀目的地计算每个账户的投票数。
+4.确定哪些帐户超出了MIN_VOTE。这些账户是赢家。
+5.获胜者每人获得他们在通胀池中的份额份额。例如，如果获胜者获得2％的选票，它将获得通货膨胀率的2％。
+6.将任何未分​​配的流明返回到收费池。
+
+恒星共识协议（SCP）提供了一种达成共识,SCP同时拥有四个关键属性：分散控制，低延迟，灵活信任和渐近安全。
+网络上的每笔交易需要少量的费用：(0.00001XLM);网络费从源账户中扣除；交易费用是交易包含的操作次数乘以基础费用，即100stroops（0.00001XLM);在构建交易时不提供fee
+
+XLM使用seed代替私钥;
+
+为了防止人们制造大量不必要的账户，每个账户必须具有2*0.5 XLM的最小余额(XML是stellar的内置货币)
+
+XLM是stellar网络中可以使用的唯一不需要发行者或信任线的资产类型
+
+一个账户余额可以有多种类型(如：native)
+
+如果一个交易中任何一个操作失败，他们将全部失败
+
+一个账户一次只能执行一个交易，并且有一个sequence number的唯一标识
+
+xlm最小单位1/10,000,000xlm(0.0000001 xlm)；最大10^7;
+
+
+
+yarn add stellar-sdk
+yarn add ed25519
+
+温钱包：{seed:'SCRCQIYZJPHEY56QT5367KRUGNJE56MOYGCQNIWBNB5DZ62QNKYEHFYW',publicKey:'GAJFPHGNYATATG2E42OGDEPK75W4E575R3U64WQNEM6CCH5WGFSGP4U2'}
+   冷钱包：{seed:'SB2B5QWEK2JDWCO2KTLCBP54THX7ZUPKGYDANUF7PPJS73OIACQJOMI4',publicKey:'GCPEHQFDBNDTR3YOEIZOY25QCNZ57K3S5BD63HMULVL3DBHYRNEX2GNH'}
+eg.热钱包：{ seed: 'SARAZJBSP36GYKO4GO4AL4WPHLWDCQU3ZWWONKXQZAB6MI6RNXXRYJA6',publicKey: 'GC5I33JINLD72LROHQOOL7S7MR72M6R7KWE7N7PWJO2KVHT4KDMI2Q4Z' }
+充值钱包:{seed:'SCRDFF6M7E2V7P3KKDUZ67MSPUBJBW4JRFD5GJ7JXCZSPWTFIFFHDVFK',address:'GBK3BHE3TZPVMEUKLV776PTNMWY7LJNIZSLR675E47RVPBDX54DJBLN4'}
+
+let aa = {
+  "_baseAccount": {
+    "_accountId": "GC5I33JINLD72LROHQOOL7S7MR72M6R7KWE7N7PWJO2KVHT4KDMI2Q4Z",
+    "sequence": "36548101514723330"
+  },
+  "_links": {
+    "self": {"href": "https://horizon-testnet.stellar.org/accounts/GC5I33JINLD72LROHQOOL7S7MR72M6R7KWE7N7PWJO2KVHT4KDMI2Q4Z"},
+    "transactions": {
+      "href": "https://horizon-testnet.stellar.org/accounts/GC5I33JINLD72LROHQOOL7S7MR72M6R7KWE7N7PWJO2KVHT4KDMI2Q4Z/transactions{?cursor,limit,order}",
+      "templated": true
+    },
+    "operations": {
+      "href": "https://horizon-testnet.stellar.org/accounts/GC5I33JINLD72LROHQOOL7S7MR72M6R7KWE7N7PWJO2KVHT4KDMI2Q4Z/operations{?cursor,limit,order}",
+      "templated": true
+    },
+    "payments": {
+      "href": "https://horizon-testnet.stellar.org/accounts/GC5I33JINLD72LROHQOOL7S7MR72M6R7KWE7N7PWJO2KVHT4KDMI2Q4Z/payments{?cursor,limit,order}",
+      "templated": true
+    },
+    "effects": {
+      "href": "https://horizon-testnet.stellar.org/accounts/GC5I33JINLD72LROHQOOL7S7MR72M6R7KWE7N7PWJO2KVHT4KDMI2Q4Z/effects{?cursor,limit,order}",
+      "templated": true
+    },
+    "offers": {
+      "href": "https://horizon-testnet.stellar.org/accounts/GC5I33JINLD72LROHQOOL7S7MR72M6R7KWE7N7PWJO2KVHT4KDMI2Q4Z/offers{?cursor,limit,order}",
+      "templated": true
+    },
+    "trades": {
+      "href": "https://horizon-testnet.stellar.org/accounts/GC5I33JINLD72LROHQOOL7S7MR72M6R7KWE7N7PWJO2KVHT4KDMI2Q4Z/trades{?cursor,limit,order}",
+      "templated": true
+    },
+    "data": {
+      "href": "https://horizon-testnet.stellar.org/accounts/GC5I33JINLD72LROHQOOL7S7MR72M6R7KWE7N7PWJO2KVHT4KDMI2Q4Z/data/{key}",
+      "templated": true
+    }
+  },
+  "id": "GC5I33JINLD72LROHQOOL7S7MR72M6R7KWE7N7PWJO2KVHT4KDMI2Q4Z",
+  "paging_token": "",
+  "account_id": "GC5I33JINLD72LROHQOOL7S7MR72M6R7KWE7N7PWJO2KVHT4KDMI2Q4Z",
+  "sequence": "36548101514723330",
+  "subentry_count": 0,
+  "thresholds": {"low_threshold": 0, "med_threshold": 0, "high_threshold": 0},
+  "flags": {"auth_required": false, "auth_revocable": false},
+  "balances": [{"balance": "9979.9999800", "asset_type": "native"}],
+  "signers": [{
+    "public_key": "GC5I33JINLD72LROHQOOL7S7MR72M6R7KWE7N7PWJO2KVHT4KDMI2Q4Z",
+    "weight": 1,
+    "key": "GC5I33JINLD72LROHQOOL7S7MR72M6R7KWE7N7PWJO2KVHT4KDMI2Q4Z",
+    "type": "ed25519_public_key"
+  }],
+  "data_attr": {}
+}

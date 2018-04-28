@@ -1,0 +1,3 @@
+查看进程：
+lsof -i:port；kill -9 pid
+iTerm 类似terminal的工具

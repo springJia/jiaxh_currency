@@ -1,0 +1,153 @@
+有关代码部分 listener：
+补块---->0确认---->扫块
+判断temp===blockHeight是预防手动改变redis中的值
+
+用户充值钱包设置成同一个，根据不同tag区分，因为每个钱包需要20个xrp的预留金，用同一个钱包这样可以省比特币
+INTRODUCTION:
+
+BASIC TYPES:
+   mounts of XRP are represented as strings.
+   (XRP has precision equivalent to a 64-bit integer, but JSON integers are limited to 32 bits, so XRP can overflow if represented in a JSON integer.)
+   XRP is formally specified in "drops", which are equivalent to 0.000001 (one 1-millionth) of an XRP each. Thus, to represent 1.0 XRP in a JSON document, you would write:"1000000"
+
+   1.address  每个XRP分类帐帐户都有一个地址，该地址是该帐户公钥的散列的base58编码。 XRP分类帐地址始终以小写字母开头
+   2.value    XRP在小数点后有6位有效数字。换句话说，XRP不能被分成小于0.000001（1e-6）的正值。 XRP的最大值为100000000000（1e11）；
+              余额可以有负值的数额
+
+TRANSACTION OVERVIEW:
+    1.transaction types:
+    2.transaction flow:prepare--->sign--->verify(getTransaction)
+    3.transaction fees:getFee() 获取网络费估值
+    4.transaction instructions:交易说明指出如何执行交易，补充交易规范；
+                               maxLedgerVersion=null--->>允许任何高度包含此交易
+                               maxLedgerVersion：Optional The highest ledger version that the transaction can be included in
+    5.transaction id:getTransaction可以获取交易信息并查看
+    6.transaction menos(交易备忘录):
+
+TRANSACTION specifications:事物规范指定了应该做什么。每种交易类型都有其自己的规范类型
+    payment:====>>{
+              "source": {
+                "address": "r9cZA1mLK5R5Am25ArfXFmqgNwjZgnfk59",
+                "maxAmount": {
+                  "value": "0.01",
+                  "currency": "USD",
+                  "counterparty": "rMH4UxPrbuMa1spCBR98hLLyNJp4d8p4tM"
+                }
+              },
+              "destination": {
+                "address": "rpZc4mVfWUif9CRoHRKKcmhu1nx2xktxBo",
+                "amount": {
+                  "value": "0.01",
+                  "currency": "USD",
+                  "counterparty": "rMH4UxPrbuMa1spCBR98hLLyNJp4d8p4tM"
+                }
+              }
+            }
+获取种子：
+generateSeed(entropy,algorithm)
+
+API METHODS:
+
+    connect:
+    disconnect:
+    getServerInfo:获取有关RippleAPI实例连接到的服务器的状态信息
+        参数意义：
+            completeLedgers:范围表达式指示数据库中本地波动的ledger版本的序列号。可能是不相交的序列，例如“2500-5000,32570-7695432”
+            validatedLedger:关于序号最高的完整验证ledger的信息(最新)
+            "validated_ledger": {
+                            "age": 1,
+                            "baseFeeXRP": 0.00001,//基本费用，在XRP。这可能以科学记数法表示，如1e-05为0.00005
+                            "hash": "42C0DA89E1DB6CFB1E18AEF875B28FA7A7C55D75BA6B429BCA8AD10E3E6DB276",//ledger的唯一散列，作为大写十六进制字符串
+                            "reserveBaseXRP": 20,//每个账户需要保留的最小XRP金额
+                            "reserveIncrementXRP": 5,//
+                            "seq": 8282057 //唯一序列
+                        }
+
+    getFee:
+    getLedgerVersion:返回连接服务器已知的最新验证分类帐版本
+    getTransaction:通过其交易ID检索交易
+        根据地址获取tx：
+          let  a = [{
+            "type": "payment",
+            "address": "r9tGvkUDhcL7kLrnthXZ7o2yJTSSpx6HBx",//发起交易的账户
+            "sequence": 11,
+            "id": "8348B549FAFD75606DCFF700D00E4DC271ADBC5016070DC9277598E97A91CA45",
+            "specification": {//一个能够产生与此交易相同结果的规范
+              "source": {
+                "address": "r9tGvkUDhcL7kLrnthXZ7o2yJTSSpx6HBx",
+                "maxAmount": {"currency": "XRP", "value": "0.01"}
+              },
+              "destination": {
+                "address": "rKP17FT5k6rg7SoRTWrR1v1xdWWF4h8M8k",
+                "amount": {"currency": "XRP", "value": "0.01"},
+                "tag": 4
+              }
+            },
+            "outcome": {//交易的结果
+              "result": "tesSUCCESS",
+              "timestamp": "2018-04-13T02:00:13.000Z",
+              "fee": "0.000045",
+              "balanceChanges": {//键地址;值是表示该地址的余额变化的有符号数量的数组
+                "rKP17FT5k6rg7SoRTWrR1v1xdWWF4h8M8k": [{"currency": "XRP", "value": "0.01"}],
+                "r9tGvkUDhcL7kLrnthXZ7o2yJTSSpx6HBx": [{"currency": "XRP", "value": "-0.010045"}]
+              },
+              "orderbookChanges": {},
+              "ledgerVersion": 8281972,//该交易通过验证的ledger版本号
+              "indexInLedger": 0,
+              "deliveredAmount": {"currency": "XRP", "value": "0.01"}//可选。
+            }
+          }]
+    getTransactions://检索帐户的历史交易
+    getTrustlines://返回指定帐户的信任线
+    getBalances://返回指定帐户的余额
+        [
+          {
+            "value": "922.913243",
+            "currency": "XRP"
+          },
+          {
+            "value": "0",
+            "currency": "ASP",
+            "counterparty": "r3vi7mWxru9rJCxETCyA1CHvzL96eZWx5z"
+          }
+        ]
+    getBalanceSheet:
+    getPaths:
+    getOrders:
+    getOrderbook:
+    getSettings:
+    getAccountInfo:返回制定账户的信息
+    getPaymentChannel:返回指定的付款渠道
+    getLedger://返回指定ledger或最新ledger的信息
+    preparePayment:准备付款交易。准备好的交易必须随后签署并提交
+    submit:提交已签名的交易。交易不保证成功;必须使用getTransaction进行验证
+    computeLedgerHash:计算ledger的hash.(该方法的参数与getLedger的返回值具有相同的结构)
+
+使用WebSocket API(代码中)/JSON-RPC API(测试接口)
+XRP LEDGER DATA FORMAT 只有经过验证的ledger肯定是正确和不可变的
+How to Multi-Sign:多重签名，私钥公钥
+    多重签名是授权XRP分类帐交易的三种方式之一，同时还可以使用常规密钥和主密钥进行签名。我们使用常规的密钥和主密钥
+Address--要成为储存在ledger中的获得资金的地址，地址必须收到支付交易，该交易提供足够的XRP以满足储备金要求
+         基准储备金是分类账中每个地址所需的最小XRP数量。目前，这是20 XRP（20000000滴);
+         所有者准备金是对地址在分类账中拥有的每个对象的准备金要求的增加。目前，这是每个项目5个XRP（500万滴);
+
+解决问题google：
+google测试网络：ripple testnet
+查找git:ripple git (一般以ed结尾)
+Your Credentials
+ADDRESS
+raeS9zCja5ZxDrKsLE5n7qKL5tGRsSo7QC
+SECRET
+ssK8TaH3oFHqVn1rEY3h3nQSS6ufC
+BALANCE
+10,000 XRP
+
+
+问题：
+     1.support_currency 最小充值数问题
+     2.seed问题----让我自己看文档
+     3.不需要扫币放到消息队列吗-------不需要，因为所以的用户充值地址都一样
+     4.网络费用问题----服务费会在引擎处就减去，真正的挖矿手续费会我们的钱包给出，注：
+     5.扫币的时候必须达到一定数量才扫币，并且一次性扫完-------如eth（btc没有）
+     6.xrp:getBalances返回结果中为什么一个地址可以有多种货币？
+
