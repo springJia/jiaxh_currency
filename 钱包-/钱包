@@ -5,10 +5,13 @@ BTC/XRP 在同一链
 btc/bch/ltc：有缓存区
 xrp:没有缓存区
 
+上币流程：监听、提现、扫币、获取充值地址、地址校验、推倒私钥
+
 support_currency：deposit_confirmation代表确认数达到改值时显示到账，withdraw_confirmation代表当某用户提现时只有确认数达到withdraw_confirmation值时才可以提现
 
 bisale_wallet_comsumer项目---->事件结果处理器
 bisale_wallet_xrpchainlike_withdraw_tesk项目--->提现接受者(检查ref_id发布事件添加ref_id) 状态从11-->13
+
 
 提现流程：不能重复提现，要检验redis中的放重refID和withdraw_history中的refID记录；提现不需要更新确认数
 
@@ -21,7 +24,8 @@ bisale_wallet_xrpchainlike_withdraw_tesk项目--->提现接受者(检查ref_id�
    5.bisale_wallet_comsumer项目,消费消息队列中的withdraw.allCoin.onWithdrawFound消息，更新deposit_withdraw和表withdraw_history中网络费(eth系列需要)
 
 
-监听流程：
+监听流程：监听充值：记录到chain_deposit表中，同时发布有充值更新的事件；更新充值确认数
+        监听提现：记录到chain_withdraw表中
 
 
 扫币流程：扫币：充值完成后达到3个条件后才扫币，查看scan_history并且到公网查看网络手续费
@@ -32,7 +36,8 @@ bisale_wallet_xrpchainlike_withdraw_tesk项目--->提现接受者(检查ref_id�
 
 充值流程：
     1.用户充值到我们提供的充值地址中币
-    2.bisale_wallet_xrpchainlike_listener项目检查到充值，
+    2.bisale_wallet_xrpchainlike_listener项目检查到充值，发布充值更新事件
+    3.bisale_wallet_comsumer项目在deposit_withdraw表中更新或插入充值记录
 
 
 

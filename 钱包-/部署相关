@@ -8,7 +8,7 @@
 
 
 //四台服务器如下：
-test_wallet_server1  47.52.247.51  172.31.48.184
+test_wallet_server1  47.52.247.51  172.31.48.18
 nginx、网关、redis、rabbitmq1、对账程序、haproxy
 
 test_wallet_server2  47.75.12.124  172.31.48.185

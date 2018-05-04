@@ -23,7 +23,7 @@
     "XRP_DEPOSIT": "cfeb079c96392b7ad7e969901189f19de4282dccbb5abf03cd26b806698c76d1",
     "XLM_WITHDRAW": "27043e0ffe488f63c8ee5b75f227167c1091261476bf063c45644e7546a327980535c614f9d535e1a849d7277959cbed9ea7f9de22b61333cb39d036e067cbea",
      "XLM_DEPOSIT": "ab2cd19b803e57de28e934c8c132c89e25c523c4396c1c3e22c25950d135b616c33e284a87b03b0051ac3eb00745a43ad75857694ba97f0584e36a2de44b54b4"
-NODE_ENV=development babel-node app.js btc bch eth ndx ltc xrp_withdraw xrp_deposit
+NODE_ENV=development babel-node app.js btc bch eth ndx ltc xrp_withdraw xrp_deposit xlm_withdraw xlm_deposit
 
 
 
