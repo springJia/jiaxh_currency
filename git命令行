@@ -7,7 +7,8 @@ git checkout -d add_ltc 删除add_ltc分支
 git remote set-url origin https://www.xxx.com/xxx/xxx.git 连接远程的git
 git submodule sync && git submodule update --init --recursive --remote  更新子模块
 git commit --amend 合并commit
-
+git remote -v 查看远程仓库
+解决fatal: refusing to merge unrelated histories:===>git pull origin master:master --allow-unrelated-histories
 git config --file=.gitmodules submodule.src/common.url git@git.bisale.org:wallet/bisale_wallet_common.git
 
 npm publish --tag latest

@@ -1,0 +1,71 @@
+linux下：
+1.screen -ls 窗口管理列表
+2.screen -r 节点名称(如：screen -r 330.parity_testnet) 进去节点
+3.重启节点
+4.ctrl+a+d 退出当前窗口
+
+节点版本更新ETH：
+    升级parity：
+        screen -S parity1.10.6 新开一个窗口
+        cd ~/parity
+        mkdir src -->git clone ../parity.git（src中有parity）
+        mv parity parity1.10.6 重命名
+        cd parity1.10.6
+        git pull && git checkout v1.10.6 (切换到当前tags分支)
+        cargo clean && cargo build --release   (cargo一个自动部署工具)
+        cp target/release/parity /usr/bin/parity1.10.6  将可执行文件放到bin目录
+        关闭当前窗口（exit）
+        关闭旧版本parity
+        开启新版本parity   在eth窗口下,执行parity1.10.6 -c ......
+        端口默认：
+        cat confs/testnet.conf 配置端口
+
+
+节点版本更新BTC/LTC/BCH：
+        wget https://download.bitcoinabc.org/0.17.2/linux/bitcoin-abc-0.17.2-x86_64-linux-gnu.tar.gz  下载
+        tar zxvf bitcoin-abc-0.17.2-x86_64-linux-gnu.tar.gz 解压
+                如果是同步节点：mkdir testnetdata(存放节点数据)
+                              mkdir confs-->vim confs/bitcoin_testnet.conf(配置文件)
+                升级节点：mv ~/bitcoin-abc-0.17.1/testnetdata . 移动文件到当前目录
+                        mv ~/bitcoin-abc-0.17.1/conf .
+        启动节点：当前screen当前节点下：
+        ./bin/bitcoind  -datadir="/Users/joy/Work/bitcoincash/testnetdata" -conf="/Users/joy/Work/bitcoincash/confs/bitcoin_testnet.conf" (指定路径必须是绝对路径)
+
+节点版本部署TRON:
+        install jdk 1.8
+        git clone java-tron
+        cd java-tron
+        ./gradlew build
+        cp build/libs/java-tron.jar ../
+        cp src/main/resources/config.conf ../
+        java -jar java-tron.jar -c config.conf  (修改config.conf配置)
+        查看日志：tail -f logs/tron.log/
+
+
+
+
+
+
+
+
+
+{
+  "monitor": "AnnouncementNoticeMonitor",
+  "params": {
+    "interval": 10000,
+    "notifyInterval": 2,
+    "smtp": {
+      "host": "smtp.exmail.qq.com",
+      "port": 465,
+      "secure": true,
+      "auth": {
+        "user": "jiaxiaohong@uchain.one",
+        "pass": "jXH892231"
+      }
+    },
+    "targetEmails": [
+      "378584469@qq.com"
+    ],
+    "noticeUrl":"https://www.huobi.pro/-/x/hb/p/api/contents/pro/list_notice?limit=20&language=zh-cn"
+  }
+}

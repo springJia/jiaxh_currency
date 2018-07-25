@@ -1,0 +1,2 @@
+节点软件Dash Core：https://github.com/dashpay/dash/releases/tag/v0.12.2.3
+　启动测试节点：/Applications/Dash-Qt.app/Contents/MacOS/Dash-Qt -testnet -server -rpcport=19998 -rpcbind=0.0.0.0 -rpcuser=test -rpcpassword=123456789

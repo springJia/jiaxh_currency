@@ -1,0 +1,6 @@
+bitcoin  第三方正式链：https://api.blockcypher.com/v1/btc/main 第三方测试链：https://api.blockcypher.com/v1/btc/test3
+bitcoin abc == bch   https://bch.btc.com/api-doc 文档，应用程序可以通过BTC.COM提供的API访问比特币网络的数据
+dash
+etherscan (节点工具parity)  正式链：https://api.etherscan.io/api   测试链：https://api-kovan.etherscan.io
+ulord
+

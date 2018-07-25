@@ -1,0 +1,87 @@
+PM2: advanced,production process manager for node.js  PM2:是先进的node.js生产管理工具
+1.可以通过npm/yarn安装
+2.pm2脚步参数：
+    {
+      "apps" : [{
+        "script"    : "api.js",     //启动项
+        "instances" : "max",        //集群方式启动，启动的进程数量；max=0时表示pm2将根据CPU数量(集群模式)启动最大可能的进程
+        "exec_mode" : "cluster"     //cluster使pm2知道您希望在每个实例之间进行负载均衡，支持启动多个实例；fork不支持
+         "kill_timeout" : 3000000,  //在优雅退出时，等待3000000ms强制退出
+         "listen_timeout":3000,   //  优雅的启动时，等待3000ms自动启动
+         "error_file" ,     : "err.log",
+           "out_file" ,       : "out.log",
+           "merge_logs" ,     : true,
+           "log_date_format" : "YYYY-MM-DD HH:mm Z"
+      }]
+    }
+    或：
+    {
+      "apps" : [{
+        "name"        : "bisale_wallet_bchchain_listener",
+        "script"      : "app.js",
+        "watch"       : false,
+        "exec_mode"        : "fork",
+        "instances": 1,
+        "env": {
+          "EXE_PATH": "lib",
+          "NODE_ENV": "production"
+        },
+        "autorestart" : false,
+        "kill_timeout" : 3000000,
+        "out_file": "/dev/null",
+        "error_file": "/dev/null"
+      }]
+    }
+3.graceful shutdown:(SIGINT是PM2退出时发送的第一个信号)，执行操作以等待/清除所有这些状态
+    process.on('SIGINT', function() {
+      db.stop(function(err) {
+        process.exit(err ? 1 : 0);
+      });
+    });
+4.graceful start:优雅的启动
+5.配置项：
+    name  应用名称；
+
+    script  启动脚本路径；
+
+    cwd  应用启动的路径；
+
+    args  传递给脚本的参数；
+
+    interpreter  指定的脚本解释器；
+
+    interpreter_args  传递给解释器的参数；
+
+    watch:watch可以监控当前文件或子项目修改时，自动重启pm2.
+      ⚠️：watch不提供优雅的关停，pm2杀死或重启应用不发送SIGINT，所以在设置优雅关停时'watch':'false'
+
+    env:环境变量 object类型 如：{ "EXE_PATH": "lib", "NODE_ENV": "production"}
+
+    force  默认false，如果true，可以重复启动一个脚本。pm2不建议这么做；
+
+    restart_delay  异常重启情况下，延时重启时间；
+
+6.常用命令行：
+$ npm install pm2 -g     # 命令行安装 pm2
+$ pm2 start app.js -i 4 #后台运行pm2，启动4个app.js
+                                # 也可以把'max' 参数传递给 start
+                                # 正确的进程数目依赖于Cpu的核心数目
+$ pm2 start app.js --name my-api # 命名进程
+$ pm2 list               # 显示所有进程状态
+$ pm2 monit              # 监视所有进程  Monitoring CPU/Memory
+$ pm2 logs               #  显示所有进程日志
+$ pm2 stop all           # 停止所有进程
+$ pm2 restart all        # 重启所有进程
+$ pm2 reload all         # 0秒停机重载进程 (用于 NETWORKED 进程)
+$ pm2 stop 0             # 停止指定的进程
+$ pm2 restart 0          # 重启指定的进程
+$ pm2 startup            # 产生 init 脚本 保持进程活着
+$ pm2 web                # 运行健壮的 computer API endpoint (http://localhost:9615)
+$ pm2 delete 0           # 杀死指定的进程
+$ pm2 delete all         # 杀死全部进程
+
+CONFIG_FILE 路径 pm2 start pm2相对路径  CONFIG_FILE="/Users/jiaxh/bisale_project/bisale_wallet_btcchainlike_listener/src/config/development.json" pm2 start pm2/pm2_staging_btcchain.json
+pm2 restart +project_name
+pm2 logs +project_name
+pm2 l 查看记录
+pm2 reload _project_name 加载/重启 某个项目

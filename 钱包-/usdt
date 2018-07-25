@@ -1,0 +1,8 @@
+https://tether.io ----官网地址
+https://www.omniexplorer.info/address/1NTMakcgVwQpMdGxRQnFKyb3G1FAJysSfz ---usdt 地址
+omnicore 节点节省手续费
+
+查询余额/确认数的：
+{ "jsonrpc":"2.0", "method":"omni_gettransaction", "params":["7c2286d8a511d509ec9fb5c4a4c05ee747bf6b3fb42fcb07637dbbceab05d681"], "id":1 }
+
+{ "jsonrpc":"2.0", "method":"omni_getbalance", "params":["2N4fvvwc4dQEQZzMLJNg4TngWWMgRSgHLBn", 1], "id":1 }

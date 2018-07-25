@@ -1,0 +1,7 @@
+process 对象是一个全局变量，它提供当前node.js进程的有关信息，以及控制当前nodejs进程。因为是全局变量，所以是全局变量，所以无需使用require（）
+process.exit(0)表示成功完成，回调函数中，err将为null；
+process.exit(非0)表示执行失败，回调函数中，err不为null，err.code就是我们传给exit的数字。
+
+1.express 创建一个express应用程序，express() 是express模块导出的顶级函数
+var express = require('express');
+var app = express();

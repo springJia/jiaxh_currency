@@ -1,0 +1,31 @@
+es6比es5增加了模块(module)体系和一些新的特性
+模块化功能优化了es5的运行时加载，可以在编译时加载
+
+Babel转码器：
+babel是一个广泛的es6转码器
+.babelrc 存放在根目录下，使用babel的第一步，就是配置这个文件
+{
+"presets":['stage-0'],
+ "plugins": [
+    "transform-decorators-legacy"
+  ],
+  "ignore":[
+      "node_modules"  //转码时忽略
+    ],
+}
+//presets:设置转码规则和插件 需要安装： yarn add --save-dev babel-preset-stage-0
+babel-cli命令行转码工具；babel-cli支持babel-node命令，可以直接运行es6代码，如：babel-node app.js
+
+babel-register模块改写require命令，为它加上一个钩子。此后，每当使用require加载.js、.jsx、.es和.es6后缀名的文件，就会先用 Babel 进行转码
+
+    ⚠️babel-register只会对require命令加载的文件转码，而不会对当前文件转码。另外，由于它是实时转码，所以只适合在开发环境使用
+
+babel-core对api进行转码
+babel-polyfill :Babel 默认只转换新的 JavaScript 句法（syntax），而不转换新的 API，比如Iterator、Generator、Set、Maps、Proxy、Reflect、Symbol、Promise等全局对象，以及一些定义在全局对象上的方法（比如Object.assign）都不会转码
+                对build过的文件做运行时编译( 或者用regenerator-runtime/time)
+babel-plugin-transform-decorators-legacy:装饰器转化插件 （装饰器用来装饰一个类或者方法）
+babel-preset-env可以设置一些选项，这里就介绍几种，有兴趣自己去看英文文档
+    targets 指定运行环境
+    targets.node 指定node版本
+    targets.browsers 指定浏览器版本
+    modules 指定何种形式的模块，设置为false表示不转码模块

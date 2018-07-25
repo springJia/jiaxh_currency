@@ -1,0 +1,29 @@
+Object.assign({},...sources) //拷贝
+Object.assign({},...sources1,...sources2)//合并对象
+Object.keys() 返回一个包含所有给定对象自身可枚举属性名称的数组
+Object.values(obj)方法返回一个给定对象自己的所有可枚举属性值的数组 var obj = { foo: "bar", baz: 42 }; console.log(Object.values(obj)); // ['bar', 42]
+Object.entries() 方法返回一个给定对象自身可枚举属性的键值对数组 const object1 = { foo: 'bar', baz: 42 };console.log(Object.entries(object1)[1]);// expected output: Array ["baz", 42]
+java中的instanceof运算符是用来在运行时指出对象是否是特定类的一个实例。如：result=object instanceof class
+let version=['0.9.6.7.8.3', '1.6.3', '0.10.6.5', '0.8.5', '0.10.6.7']
+version(version, maxLength) {
+    let result = []
+    for (let i = 0; i < maxLength; i++) {
+      let forVsersion = (result.length === 0 ? version : result)
+      result = []
+      for (let j = 0; j < forVsersion.length; j++) {
+        if (result.length === 0) {
+          result.push(forVsersion[j])
+        } else if (result[0][i].toNumber() < forVsersion[j][i].toNumber()) {
+          result = []
+          result.push(forVsersion[j])
+        } else if (result[0][i].toNumber() === forVsersion[j][i].toNumber()) {
+          result.push(forVsersion[j])
+        }
+      }
+    }
+    return result[0]
+  }
+
+作用域：
+apply()/call()/bind()修改作用域；
+

@@ -1,5 +1,0 @@
-Object.assign({},...sources) //拷贝
-Object.assign({},...sources1,...sources2)//合并对象
-Object.keys() 返回一个包含所有给定对象自身可枚举属性名称的数组
-Object.values(obj)方法返回一个给定对象自己的所有可枚举属性值的数组 var obj = { foo: "bar", baz: 42 }; console.log(Object.values(obj)); // ['bar', 42]
-Object.entries() 方法返回一个给定对象自身可枚举属性的键值对数组 const object1 = { foo: 'bar', baz: 42 };console.log(Object.entries(object1)[1]);// expected output: Array ["baz", 42]

@@ -1,0 +1,59 @@
+区块链浏览器：https://www.trxplorer.io/
+官方节点查询 api: https://api.tronscan.org/
+git 地址：：https://github.com/tronprotocol 其中 java-tron是主网代码，protocol是api和数据结构定义。wallet-cli是官方命令行钱包
+查阅的一个地址：https://tron-wiki.readthedocs.io/en/future/TRON_Client.html#how-to-freeze-unfreeze-balance
+
+tron 出块速度是3秒
+tron推荐使用gRPC接口，同时也支持http接口
+tron -api说明：
+        https://github.com/tronprotocol/Documentation/blob/master/TRX_CN/Tron-overview.md#4-tron-api%E8%AF%B4%E6%98%8E
+
+测试钱包密码：testqwertyuiopa
+产块==>私钥：7EB79896A4589F4538E701DF15FA244AE04A86D3AAE4AAD1E1484B90EA5D4E30;地址：TDWE7f3viWA7nsCUoc9FQTbvxDRLohk8Z8,
+充值==> 私钥：C15F7AF0C72B9052FC5588A31F92190B05549020E70677FD1E845AECDD1950A7;地址：TJ98RDMXZ5Kx5MYPecgRHtJzqRo7iuvmoQ,
+提现热钱包==>私钥：244CEABE174E3717095AF76B53079840CC1E5DE4ACABCA04BF239C70E3929914;地址:TBaTHasupNFzjWZGSjTQwqsoNhYqYBVcei
+
+
+创建账户：
+    您可以随意注册离线密钥对（包含地址和私钥），但是这个密钥对不会被TRON网络记录。 要想使这个密钥对成为TRON网络中的账户，需要其他已经存在于TRON网络的账户调用以下3种api之一：
+    直接调用创建账户api
+    给新地址转TRX
+    给新地址转任意一种token
+    交易被网络确认后，您就可以在TRON网络中查询到地址对应的账户的信息了。
+
+为什么要冻结资金
+    设置冻结资金的机制有2个出发点：
+    防止恶意的垃圾交易阻塞网络，造成交易确认缓慢的问题
+    防止恶意投票
+
+交易模型：
+   基于账号模型，目前不支持UTXO模型。TRX的最小单位是Drop,1TRX=1000000drop,目前仅支持1对1交易，尚不支持1对n或者n对1转账。
+本地构造交易：
+       根据交易的定义，自己填充交易的各个字段，本地构造交易。需要注意是交易里面需要设置refference block信息和Expiration信息，所以在构造交易的时候需要连接mainnet。
+    建议设置refference block为fullnode上面的最新块，设置Expiration为最新块的时间加N分钟。N的大小根据需要设定，后台的判断条件是(Expiration > 最新块时间 and Expiration < 最新块时时 + 24小时），
+    如果条件成立则交易合法，否则交易为过期交易，不会被mainnet接收。 refference block 的设置方法：设置RefBlockId为最新块的hash的第8到16(不包含)之间的字节，设置BlockBytes为最新块高度的第6到8（不包含）之间的字节
+
+创建账户：不能使用免费带宽来创建账户，只能使用冻结获取的带宽，或者烧掉交易发起者的0.1TRX。
+
+         直接调用创建账户api、转移资产、转移token都允许创建账户。
+网络费：
+     Bandwidth Points
+            过多的无关紧要的交易会造成类似于以太坊的网络拥堵，从而使得交易确认时间延迟。 为了避免阻塞网络，TRON网络允许每个账户免费发起限量的交易，更高的交易频率则需要消耗bandwidth points。bandwidth points和TRON Power(TP)一样，通过冻结资金来获取。
+
+token转账相关：
+    如果交易类型是token的转账，交易会先尝试消耗token发行者的Bandwidth Points。
+    token发行者在发行token时，可以配置Bandwidth Points消耗限制参数，即每个拥有该token的账户在24h内token转账可以消耗的最大Bandwidth Points，以及总的最大Bandwidth Points。这两个参数都可以通过updateAsset接口更改。
+
+Bandwidth Points的消耗规则 ：
+    除了查询操作，任何交易都需要消耗bandwidth points。一条交易的带宽消耗流程如下：
+    1、如果不是token转账，则进入第2步；否则尝试消耗token发行者的Bandwidth Points，如果发行者Bandwidth Points不足或超过设定的最大值，则进入第2步。
+
+    2、尝试消耗交易发起者冻结获取的Bandwidth Points。如果交易发起者Bandwidth Points不足：
+       (1) 如果该交易会创建一个新账户，则进入第4步；
+       (2) 如果该交易不会创建新账户，则进入第3步。
+
+    3、尝试消耗交易发起者的免费Bandwidth Points。如果免费Bandwidth Points也不足，则进入第4步。
+
+    4、尝试消耗交易发起者的TRX，这部分TRX会烧掉。
+       (1) 如果是普通转账，则烧掉大约0.002TRX；
+       (2) 如果该交易会创建新账户，则烧掉0.1TRX。

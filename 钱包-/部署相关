@@ -5,27 +5,47 @@
 4.git pull && git submodule foreach git pull origin staging && yarn && yarn build  更新代码并build
 5.pm2 reload/start bisale_wallet_gateway 重启代码
 6.pm2 logs bisale_wallet_gateway  查看日志是否启动成功
+vim config.json 添加文件config.json--->i 编辑--->esc : wq! 保存
 
 
-//四台服务器如下：
-test_wallet_server1  47.52.247.51  172.31.48.18
-nginx、网关、redis、rabbitmq1、对账程序、haproxy
+测试服务器：
+--------------------------------------------------------------------------
+wallet_sync_node1  test私有子网a  10.1.0.175
+BTC节点(18332)、BCH节点(18334)、LTC节点(18336)
+ETH节点2(8545)
 
-test_wallet_server2  47.75.12.124  172.31.48.185
-eth系监听、eth提现consumer、ndx提现consumer、consumer、rabbitmq2
-eth系扫币、btc监听、btc提现consumer、btc扫币、bch监听、bch提现、bch扫币
+--------------------------------------------------------------------------
+wallet_sync_node2  test私有子网a  10.1.0.152
+ETH节点(8545)、USDT节点(18332)、BTC节点2(18334)
 
-test_wallet_server3  47.91.214.201  172.31.48.186
-私钥管理程序3000、usdt
+--------------------------------------------------------------------------
+bisale_test_wallet_sync_node3_ubuntu  10.1.0.142
+uload节点(18332)、neo私链节点(30333)、ulord_pool
 
-test_wallet_server4  47.75.12.46  172.31.48.182
-eth节点 8545、bch节点 18332 18333、btc节点1 18334 18335、btc节点2 18336 18337、xrp节点 51233(ws) 51234、ltc节点 18338 18339
+--------------------------------------------------------------------------
+wallet_nginx  test公有子网a  10.1.0.37
+nginx
 
-// 接口
-47.52.247.51/wallet_api/v1
-test
-test
+--------------------------------------------------------------------------
+wallet_gateway_internal  test私有子网a  10.1.0.163
+gateway_internal
 
-47.52.247.51/btc
-test
-123456789
+--------------------------------------------------------------------------
+bisale_test_wallet_app  10.1.0.140
+gateway、withdraw_task、consumer、私钥管理程序、等等
+
+
+ssh deploy@10.1.0.140  monitor程序 cd /opt/apps
+
+测试服务器要2台
+
+
+生产环境数据库：
+52.192.97.239
+bisale-production-database-wallet.cluster-c41pmtpms6c8.ap-northeast-1.rds.amazonaws.com
+账号 bisalestag 密码 T0beEJSSBlln
+
+
+
+开发环境配置中心： ws://192.168.31.23:8082
+

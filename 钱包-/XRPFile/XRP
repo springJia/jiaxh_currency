@@ -2,6 +2,11 @@
 补块---->0确认---->扫块
 判断temp===blockHeight是预防手动改变redis中的值
 
+测试URL:wss://s.altnet.rippletest.net:51233
+正式URL:wss://s1.ripple.com
+
+
+最大值：1e11，最小0.000001;
 用户充值钱包设置成同一个，根据不同tag区分，因为每个钱包需要20个xrp的预留金，用同一个钱包这样可以省比特币
 INTRODUCTION:
 
@@ -118,9 +123,9 @@ API METHODS:
     getSettings:
     getAccountInfo:返回制定账户的信息
     getPaymentChannel:返回指定的付款渠道
-    getLedger://返回指定ledger或最新ledger的信息
+    getLedger://返回指定ledger或最新ledger的信息   入账交易不可回滚roll back
     preparePayment:准备付款交易。准备好的交易必须随后签署并提交
-    submit:提交已签名的交易。交易不保证成功;必须使用getTransaction进行验证
+    submit:提交已签名的交易。交易不保证成功; 必须使用getTransaction进行验证
     computeLedgerHash:计算ledger的hash.(该方法的参数与getLedger的返回值具有相同的结构)
 
 使用WebSocket API(代码中)/JSON-RPC API(测试接口)

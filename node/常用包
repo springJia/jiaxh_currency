@@ -1,0 +1,15 @@
+1.nodemon ---node中用于代码修改后自动重启的；在scripts中的启动项中添加：nodemon --exec
+2.mocha --->nodejs 测试
+  命令行参数：--recursive 执行改目录下的每个测试和更深层的测试，而是不是只执行单个文件
+            test/unit/*.js 通配符
+            —R spec 测试报告的格式
+            --compilers js:babel-core:register 转码，在运行前先将.js文件转码
+3.assert (npm) ----- 断言
+4.helmet  安全性相关：
+
+    Strict-Transport-Security：强制使用安全连接（SSL/TLS之上的HTTPS）来连接到服务器。
+    X-Frame-Options：提供对于“点击劫持”的保护。
+    X-XSS-Protection：开启大多现代浏览器内建的对于跨站脚本攻击（XSS）的过滤功能。
+    X-Content-Type-Options： 防止浏览器使用MIME-sniffing来确定响应的类型，转而使用明确的content-type来确定。
+    Content-Security-Policy：防止受到跨站脚本攻击以及其他跨站注入攻击。
+

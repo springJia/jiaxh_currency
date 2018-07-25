@@ -1,11 +1,28 @@
 现有货币类型：BTC,ETH,LTC,BCH,XRP,USDT
+bitcoin-core:同步节点，可以通过dumpprivkey 获取分配数据库的私钥
 BTC/BCH/LTC 同一类
 BTC/XRP 在同一链
 这个地址可以获取eth测试币：https://gitter.im/kovan-testnet/faucet
 btc/bch/ltc：有缓存区
 xrp:没有缓存区
 
+bitcoin-core部署节点，配置节点，如： /Applications/Dash-Qt.app/Contents/MacOS/Dash-Qt -testnet -server -rpcport=199 -rpcbind=0.0.0.0 -rpcuser=test -rpcpassword=123456789
+BTC:==>this._rpcClient = BitcoinRpcUtil.getRpcHelper(rpcConfig)   从当前节点中获取block或交易信息，或发送交易
+       BtcApiHelper   向其他节点发送交易
+       BitcoinWalletHelper    一些工具类
+
 上币流程：监听、提现、扫币、获取充值地址、地址校验、推倒私钥
+
+       充值： 3 ：成功
+             1、2、5：处理中   //2钱包处理中，5引擎处理中
+             4、7：失败       //4充值失败，7引擎失败
+
+       提现： 5、10、11、13：处理中
+             16：提现成功
+             7、17：失败
+       审核中：8
+       审核不通过：9
+       审核通过：10
 
 support_currency：deposit_confirmation代表确认数达到改值时显示到账，withdraw_confirmation代表当某用户提现时只有确认数达到withdraw_confirmation值时才可以提现
 
@@ -14,30 +31,42 @@ bisale_wallet_xrpchainlike_withdraw_tesk项目--->提现接受者(检查ref_id�
 
 
 提现流程：不能重复提现，要检验redis中的放重refID和withdraw_history中的refID记录；提现不需要更新确认数
-
+   0.前端发起提现，根据：余额-冻结金额(大于充值确认数，小于提现确认数)>提现金额，提现记录更新为：10或8
    1.bisale_wallet_xrpchainlike_withdraw_tesk项目，从数据库表(deposit_withdraw)中获取{type:2,status:11}的记录，并发布onWithdrawNew，有新提现的消息队列；
      同时，记录事件到redis
    2.bisale_wallet_xrpchainlike_withdraw项目，消费消息队列中的onWithdrawNew，先确认是否有重复提现，如果否折提现到用户钱包-->发送已完成提现的消息队列onWithdrawFinished
    3.bisale_wallet_comsumer项目,消费消息队列中的onWithdrawFinished消息，成功：deposit_withdraw表更新且状态为13改为16，插入withdraw_history该记录
                                                                     失败：deposit_withdraw表更新且状态为13改为17，并移除双重校验的redis
+                                                                    在更新充值提现表前需要检查冲提是否暂停
+
    4.bisale_wallet_xrpchainlike_listener项目,监听到区块中的该交易texid,获取交易信息，插入/更新deposit_withdraw表中的该记录信息,并insert到chain_withdraw
    5.bisale_wallet_comsumer项目,消费消息队列中的withdraw.allCoin.onWithdrawFound消息，更新deposit_withdraw和表withdraw_history中网络费(eth系列需要)
 
-
-监听流程：监听充值：记录到chain_deposit表中，同时发布有充值更新的事件；更新充值确认数
+监听流程：
+        监听充值：记录到chain_deposit表中，同时发布有充值更新的事件；更新充值确认数
         监听提现：记录到chain_withdraw表中
+        如果fee需要交易确认后再获取，那么还需要监听扫块
 
-
-扫币流程：扫币：充值完成后达到3个条件后才扫币，查看scan_history并且到公网查看网络手续费
+扫币流程：扫币：充值完成后达到3个条件后才扫币(确认数/地址余额/热温冷钱包余额)，查看scan_history并且到公网查看网络手续费;
+    比特币而言，当充值确认数大于等于提现确认数时才扫币
     1.btc系列要消费消息队列中的扫币事件onScan，完成交易，更新scan_history中的记录
     2.xrp没有扫币事件，轮询充值地址是否达到最大扫币值，如果是则扫币，更新scan_history 中的记录
     3.bisale_wallet_comsumer项目,消费消息队列中的withdraw.allCoin.onScanFound消息，更新scan_history中网络费(eth系列需要)
+    ⚠️：扫币的适合不要直接从队列中获取amount，从区块链上根据地址读取，这样如果同一个地址的余额可以一次扫走，节省网络手续费
 
-
-充值流程：
-    1.用户充值到我们提供的充值地址中币
+充值流
+    1.用户充值到我们提供的充值地址中币落网
     2.bisale_wallet_xrpchainlike_listener项目检查到充值，发布充值更新事件
     3.bisale_wallet_comsumer项目在deposit_withdraw表中更新或插入充值记录
+
+
+对账：
+    1.充值：
+        1.根据texId检查区块链上对应交易是否存在
+        2.如果存在，检查当前交易的金额是否和数据中记录的一致
+    2.提现：
+        1.根据提现钱包地址从区块链中获取该地址对用的所有交易记录，检查和数据库中的记录是否一致(防止出现非用户提现的记录)
+        2.核对提现金额和数据库中记录金额是否一致
 
 
 
