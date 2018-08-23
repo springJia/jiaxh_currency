@@ -29,3 +29,4 @@ babel-preset-env可以设置一些选项，这里就介绍几种，有兴趣自�
     targets.node 指定node版本
     targets.browsers 指定浏览器版本
     modules 指定何种形式的模块，设置为false表示不转码模块
+

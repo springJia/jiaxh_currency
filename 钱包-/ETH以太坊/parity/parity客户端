@@ -1,0 +1,15 @@
+节点版本更新ETH：
+    升级parity：
+        screen -S parity1.10.6 新开一个窗口
+        cd ~/parity
+        mkdir src -->git clone ../parity.git（src中有parity）
+        mv parity parity1.10.6 重命名
+        cd parity1.10.6
+        git pull && git checkout v1.10.6 (切换到当前tags分支)
+        cargo clean && cargo build --release   (cargo一个自动部署工具)
+        cp target/release/parity /usr/bin/parity1.10.6  将可执行文件放到bin目录
+        关闭当前窗口（exit）
+        关闭旧版本parity
+        开启新版本parity   在eth窗口下,执行parity1.10.6 -c ......
+        端口默认：
+        cat confs/testnet.conf 配置端口

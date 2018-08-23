@@ -1,0 +1,49 @@
+erc20是eth代币，和eth在同一条链;erc20代币的所有交易/地址余额 保存在合约地址中;在生成代币的同时生成合约地址
+
+eth --->parity是它的节点名称；可以搜索parity github /parity rpc、 版本用stable  (beta不稳定)
+
+在交易中 'input'=='0x'的是eth交易，其余是代币交易;代币交易分为两种：transfer 和 transferFrom
+交易所钱包：
+  1.同一用户的不同代币充值地址相同，不同用户的代币地址不同
+  2.不同代币的提现热钱包地址不同
+  3.erc交易需要的gas是eth,所以在提现时要确保有eth,如果没有要通过辅助钱包给eth提现钱包充一些eth
+  4.在监听程序中需要监听：充值/提现/扫币
+
+⚠️：测试api:http://api-kovan.etherscan.io;正式链api:https://api.etherscan.io
+以太坊改进建议：https://github.com/ethereum/EIPs
+以太坊有几个可互操作的客户端软件实现，其中最突出的是 Go-Ethereum（Geth）_和_Parity。
+
+⚠️：web3.js-->是一组库，允许您使用HTTP或IPC连接与本地或远程以太它节点进行交互。
+           为了让你的Ðapp运行上以太坊，一种选择是使用web3.js library提供的web3。对象。底层实现上，它通过RPC 调用与本地节点通信。web3.js可以与任何暴露了RPC接口的以太坊节点连接。
+           web3中有eth对象 - web3.eth 具体来表示与以太坊区块链之间的交互。shh对象 - web3.shh表示Whisper协议的相关交互。后续我们会继续介绍其它一些web3协议中的对象
+  @parity/api--->本地或远程以太它节点进行交互
+
+⚠️ 测试币获取地址：https://faucet.metamask.io/
+⚠️ 以太坊地址不区分大小写，所有钱包都应该接受以大写字母或小写字母表示的以太坊地址，在解释上没有任何区别。
+
+1.单位：
+Wei：以太的最小单位，1018 wei = 1 ether
+1:    wei       Wei      Dai  戴伟 密码学家 ，发表 B-money
+
+10^3: lovelace  Kwei      Ada Lovelace 洛夫莱斯 世界上第一位程序员、诗人拜伦之女
+
+10^6: babbage   Mwei     Charles Babbage 巴贝奇  英国数学家、发明家兼机械工程师，提出了差分机与分析机的设计概念，被视为计算机先驱。
+
+10^9: shannon   Gwei      Claude Elwood Shannon 香农  美国数学家、电子工程师和密码学家，被誉为信息论的创始人
+
+10^12: szabo   microether    Nick Szabo  尼克萨博  密码学家、智能合约的提出者
+
+10^15: finney  milliether   Hal Finney   芬尼  密码学家、工作量证明机制（POW）提出
+
+10^18: ether   ether    以太
+
+
+问题：为什么在钱包提现的时候：先发送交易--->消息队列---->再检验交易是发送成功，如果没成功，再次发送 ？
+
+
+⚠️ 创建一个包含九个字段的交易数据结构：nonce，gasPrice，startGas，to，value，data，v，r，s
+   原始交易创建和签名:让我们创建一个原始交易并使用 ethereumjs-tx 库对其进行签名
+
+⚠️ 以太坊 不需要多重签名
+
+

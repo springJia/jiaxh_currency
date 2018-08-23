@@ -5,3 +5,4 @@ process.exit(非0)表示执行失败，回调函数中，err不为null，err.cod
 1.express 创建一个express应用程序，express() 是express模块导出的顶级函数
 var express = require('express');
 var app = express();
+

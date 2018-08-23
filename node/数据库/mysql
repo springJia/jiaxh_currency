@@ -1,0 +1,81 @@
+engine=innodb和engine=myisam的区别
+MyISAM
+优点：速度快，磁盘空间占用少；某个库或表的磁盘占用情况既可以通过操作系统查相应的文件（夹）的大小得知，也可以通过SQL语句SHOW TABLE STATUS查得
+缺点：没有数据完整性机制，即不支持事务和外键
+
+InnoDB
+优点：支持事务和外键，数据完整性机制比较完备；可以用SHOW TABLE STATUS查得某个库或表的磁盘占用
+缺点：速度超慢，磁盘空间占用多；所有库都存于一个（通常情况）或数个文件中，无法通过操作系统了解某个库或表的占用空间
+
+事务有三种模型：
+1．隐式事务是指每一条数据操作语句都自动地成为一个事务，事务的开始是隐式的，事务的结束有明确的标记。
+2．显式事务是指有显式的开始和结束标记的事务，每个事务都有显式的开始和结束标记。
+3．自动事务是系统自动默认的，开始和结束不用标记。
+
+key、primary key 、unique key 、index区别：
+所有的MySQL索引(PRIMARY、UNIQUE和INDEX)在B树中存储。字符串是自动地压缩前缀和结尾空间
+key 主、外、唯一键约束；索引
+
+外键约束的条件：
+1.两个表必须是InnoDB
+2.外键列表必须建立了索引
+3.外键关系的两个表的列必须是数据类型相似，也就是可以相互转换类型的列，比如int和tinyint可以，而int和char则不可以；
+
+CREATE TABLE `gateway_logs` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `operator` varchar(100) NOT NULL COMMENT '请求者',
+  `operator_type` int(11) NOT NULL COMMENT '操作类型。1 获取充值地址',
+  `params` varchar(1000) NOT NULL COMMENT '参数',
+  `result` varchar(1000) DEFAULT NULL COMMENT '返回结果',
+  `status` tinyint(4) DEFAULT 0 COMMENT '请求成功还是失败。0 失败，1 成功',    //段整型
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`),
+  KEY `operator` (`operator`),
+  KEY `operator_operator_type` (`operator`, `operator_type`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='网关日志';
+
+CREATE TABLE `withdraw_history` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `ref_id` int(11) NOT NULL DEFAULT -1 COMMENT '关联id',
+  `tx_id` varchar(200) NOT NULL COMMENT '交易id',
+  `currency` varchar(100) NOT NULL COMMENT '货币名',
+  `amount` decimal(20, 10) NOT NULL COMMENT '数量',
+  `address` text NOT NULL COMMENT '目标提现地址',
+  `network_fee` decimal(20, 10) DEFAULT NULL COMMENT '网络费',
+  `mark` text DEFAULT NULL COMMENT '队列中的消息',
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `ref_id` (`ref_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='提现成功历史表';
+
+alter table deposit_withdraw add `destination_tag` int(11) DEFAULT NULL COMMENT 'xrp用的tag' after network_fee;
+alter table support_currency drop balance_method_name;
+
+表达式:IF(expr1,expr2,expr3) 满足条件expr1即条件expr1返回true 则expr2否则就是expr3 返回false 作为排序条件使用时 放在order by 后
+如下：
+
+ `select currency_info.currency as currency, full_name, withdraw_fee, deposit_enable, withdraw_enable, trade_enable, img_url, withdraw_check_limit, decimals, min_deposit_amount, sorted, min_withdraw_amount, deposit_confirmation, withdraw_confirmation, network_fee, has_tag, max_tag_length, status, if(status is null, 1, 0) as is_candy
+        from currency_info
+        left join support_currency
+        on currency_info.currency = support_currency.currency
+        where currency_info.currency in (${currencies.map((currency) => {return `'${currency}'`}).join(',')})
+        order by sorted asc`
+
+left join 会查询出左表中的所有数据；
+
+数据库在通过连接两张或多张表来返回记录时，都会生成一张中间的临时表，然后再将这张临时表返回给用户；
+
+where条件是在临时表生成好后，再对临时表进行过滤的条件；
+
+因此：where 条件加上，已经没有left join的含义（必须返回左边表的记录）了，条件不为真的就全部过滤掉。
+过滤条件放在：
+
+where后面：是先连接然生成临时查询结果，然后再筛选
+
+on后面：先根据条件过滤筛选，再连 生成临时查询结果
+
+
+
+

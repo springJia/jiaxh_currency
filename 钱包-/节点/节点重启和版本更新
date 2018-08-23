@@ -4,6 +4,11 @@ linux下：
 3.重启节点
 4.ctrl+a+d 退出当前窗口
 
+
+
+wget https://cmake.org/files/v3.12/cmake-3.12.1.tar.gz
+tar -zxvf cmake-3.12.1.tar.gz && cd cmake-3.12.1 && ./bootstrap --prefix=/usr/local && make && make install
+
 节点版本更新ETH：
     升级parity：
         screen -S parity1.10.6 新开一个窗口
@@ -41,14 +46,9 @@ linux下：
         java -jar java-tron.jar -c config.conf  (修改config.conf配置)
         查看日志：tail -f logs/tron.log/
 
-
-
-
-
-
-
-
-
+./src/UlordChain/src/ulordd -datadir="/root/uload/testnetdata" -conf="/root/uload/confs/testnet.conf"
+./src/UlordChain/src/ulord-cli -regtest generate 1
+./src/UlordChain/src/ulord-cli -regtest getinfo
 {
   "monitor": "AnnouncementNoticeMonitor",
   "params": {

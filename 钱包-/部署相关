@@ -11,20 +11,19 @@ vim config.json 添加文件config.json--->i 编辑--->esc : wq! 保存
 测试服务器：
 --------------------------------------------------------------------------
 wallet_sync_node1  test私有子网a  10.1.0.175
-BTC节点(18332)、BCH节点(18334)、LTC节点(18336)
-ETH节点2(8545)
+BTC节点(18332)、BCH节点(18334)、LTC节点(18336)、GXB节点(rpc 11011)
 
 --------------------------------------------------------------------------
 wallet_sync_node2  test私有子网a  10.1.0.152
-ETH节点(8545)、USDT节点(18332)、BTC节点2(18334)
+ETH节点(8545)、USDT节点(18332)
 
 --------------------------------------------------------------------------
 bisale_test_wallet_sync_node3_ubuntu  10.1.0.142
-uload节点(18332)、neo私链节点(30333)、ulord_pool
+uload节点(18332)、neo私链节点(30333)、eos私链节点(8888)
 
 --------------------------------------------------------------------------
-wallet_nginx  test公有子网a  10.1.0.37
-nginx
+bisale_test_wallet_sync_node4_ubuntu  10.1.0.148
+TRX(50051)
 
 --------------------------------------------------------------------------
 wallet_gateway_internal  test私有子网a  10.1.0.163
@@ -33,6 +32,10 @@ gateway_internal
 --------------------------------------------------------------------------
 bisale_test_wallet_app  10.1.0.140
 gateway、withdraw_task、consumer、私钥管理程序、等等
+
+
+--------------------------------------------------------------------------
+bisale_test_wallet_app1 10.1.0.48  18.179.202.77
 
 
 ssh deploy@10.1.0.140  monitor程序 cd /opt/apps
@@ -45,7 +48,55 @@ ssh deploy@10.1.0.140  monitor程序 cd /opt/apps
 bisale-production-database-wallet.cluster-c41pmtpms6c8.ap-northeast-1.rds.amazonaws.com
 账号 bisalestag 密码 T0beEJSSBlln
 
-
-
 开发环境配置中心： ws://192.168.31.23:8082
 
+Jenkins:
+https://build.bisale.org/
+用户名：jiaxiaohong
+密码：jiaxiaohong
+
+跳板机：登陆测试环境：ssh jiaxiaohong@52.193.216.93  --->p---->指定项目号码---->sudo su（切换root权限）
+
+ID Hostname                            IP              LoginAs            Comment
+  1 bisale-ops-gitlab-bin               10.0.2.15       [bisale-test-root] bisale-ops-gitlab-bin
+  2 bisale-test-admin                   10.1.0.224      [bisale-test-root] Bisale Test Admin
+  3 bisale-test-dividend-send           10.1.0.162      [bisale-test-root]
+  4 bisale-test-dividend-send-tmp       10.1.0.160      [bisale-test-root]
+  5 bisale-test-go-services             10.1.0.173      [bisale-test-root] Bisale Test Go Services
+  6 bisale-test-influxdb                10.1.0.226      [bisale-test-root] Bisale Test InfluxDB
+  7 bisale-test-java-api                10.1.0.177      [bisale-test-root] Bisale Test Java Api
+  8 bisale-test-java-api-2              10.1.0.186      [bisale-test-root] bisale-test-java-api-2
+  9 bisale-test-java-api-redis          10.1.0.147      [bisale-test-root] bisale-test-java-api-redis
+ 10 bisale-test-java-services           10.1.0.141      [bisale-test-root] bisale-test-java-services
+ 11 bisale-test-java-thrift-bisale-oss  10.1.0.178      [bisale-test-root]
+ 12 bisale-test-linkerd                 10.1.0.26       [bisale-test-root] Bisale Test Linkerd
+ 13 bisale-test-market                  10.1.0.176      [bisale-test-root] Bisale Test Market
+ 14 bisale-test-market-gateway          10.1.0.138      [bisale-test-root] bisale-test-market-gateway
+ 15 bisale-test-market-maker            10.1.0.99       [bisale-test-root] bisale-test-market-maker
+ 16 bisale-test-market-maker-2          10.1.0.181      [bisale-test-root] bisale-test-market-maker-2
+ 17 bisale-test-market-maker-3          10.1.0.240      [bisale-test-root] bisale-test-market-maker-3
+ 18 bisale-test-market-maker-bch-btc    10.1.0.154      [bisale-test-root] bisale-test-market-maker-bch-btc
+ 19 bisale-test-market-maker-elf-btc    10.1.0.135      [bisale-test-root] bisale-test-market-maker-elf-btc
+ 20 bisale-test-market-maker-elf-eth    10.1.0.134      [bisale-test-root] bisale-test-market-maker-elf-eth
+ 21 bisale-test-market-maker-iost-btc   10.1.0.183      [bisale-test-root] bisale-test-market-maker-iost-btc
+ 22 bisale-test-market-maker-iost-eth   10.1.0.172      [bisale-test-root] bisale-test-market-maker-iost-eth
+ 23 bisale-test-market-maker-ltc-btc    10.1.0.132      [bisale-test-root] bisale-test-market-maker-ltc-btc
+ 24 bisale-test-market-maker-qun-btc    10.1.0.155      [bisale-test-root] bisale-test-market-maker-qun-btc
+ 25 bisale-test-market-maker-qun-eth    10.1.0.136      [bisale-test-root] bisale-test-market-maker-qun-eth
+ 26 bisale-test-market-maker-ven-btc    10.1.0.167      [bisale-test-root] bisale-test-market-maker-ven-btc
+ 27 bisale-test-market-maker-ven-eth    10.1.0.189      [bisale-test-root] bisale-test-market-maker-ven-eth
+ 28 bisale-test-market-new-gw           10.1.0.182      [bisale-test-root] Bisale Test Market New GW
+ 29 bisale-test-node-api                10.1.0.218      [bisale-test-root] Bisale Test Node API
+ 30 bisale-test-rabbitmq                10.1.0.157      [bisale-test-root] Bisale Test RabbitMQ
+ 31 bisale-test-redis                   10.1.0.165      [bisale-test-root]
+ 32 bisale-test-trade-proxy             10.1.0.179      [bisale-test-root] bisale-test-trade-proxy
+ 33 bisale-test-trade-rabbitmq          10.1.0.40       [bisale-test-root] bisale-test-trade-rabbitmq
+ 34 bisale-test-tranfser                10.1.0.190      [bisale-test-root]
+ 35 bisale-test-wallet-gateway-internal 10.1.0.163      [bisale-test-root] Bisale Test Wallet Gateway Internal
+ 36 bisale-test-website                 10.1.0.57       [bisale-test-root] Bisale Test Website
+ 37 bisale-test-website-2               10.1.0.71       [bisale-test-root] bisale-test-website-2
+ 38 bisale-tmp-java-api                 10.1.0.180      [bisale-test-root]
+ 39 bisale-tmp-java-api-2               10.1.0.212      [bisale-test-root] bisale-tmp-java-api-2
+
+
+ pm2 项目在/opt/apps 下

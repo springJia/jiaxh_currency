@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        #imgWrap {
+            width: 800px;
+            height: 350px;
+            margin: 80px auto;
+            perspective: 800px;
+        }
+
+        #imgWrap img {
+            float: left;
+            height: 80px;
+            width: 80px;
+            border: 1px solid #eee;
+        }
+
+        #btn {
+            width: 100px;
+            text-align: center;
+            font: 16px/40px Arial, Verdana;
+            color: #fff;
+            padding: 0 20px;
+            background: rgb(0, 100, 0);
+            margin: 0 auto;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+    <script type="text/javascript">
+      /*
+       *  1.闪烁效果（瞬间将宽高都变为0，scale，并且是随机的）
+       *  2.图片从小到大，同时透明度从1变成0（必须是当前图片上一步效果走完了，才会开始）
+       *  3.图片旋转，同时透明度从0变成1，有层次感（位移translate）（当所有图片透明度都变为0的时候，才会开始）
+       */
+      window.onload = function () {
+        var btn = document.getElementById('btn');
+        var imgs = document.querySelectorAll('img')[0];
+        var allEnd = 0;//用来判断所有的图片是否都完成了所有的运动步骤
+        var on = true;//用来决定用户是否可以再次点击
+        toBig();
+        // //给btn添加点击事件
+        // btn.onclick = function () {
+        //   console.log("on:" + on);
+        //   if (!on) {
+        //     return;
+        //   }
+        //   on = false;
+        //   var endNum = 0;//运动完成的图片数量
+        //
+        //   // for (var i = 0; i < imgs.length; i++) {
+        //   //   //写成自执行函数的原因：for循环速度很快，将会导致setTimeout中的i找不到值
+        //   //   (function (i) {
+        //   //     setTimeout(function () {
+        //   //       montion(imgs[i], '10ms', function () {
+        //   //         this.style.transform = 'scale(0)';//因为函数用了call函数，所以可以用this，否则只能用imgs[i]
+        //   //       }, function () {
+        //   //         //第二步的运动从这里开始
+        //   //         montion(this, '1s', function () {
+        //   //           this.style.transform = "scale(1)";
+        //   //           this.style.opacity = 0;
+        //   //         }, function () {
+        //   //           endNum++;//只要有一张图片完成了第二步，则加1
+        //   //           if (endNum === imgs.length) {
+        //   //             toBig();
+        //   //           }
+        //   //         })
+        //   //       });
+        //   //     }, Math.random() * 1000);
+        //   //   })(i);
+        //   //
+        //   // }
+        //   toBig();
+        //   //定时器，用来延迟时间，不让图片同步所放
+        // };
+
+        //第三个运动效果
+        function toBig() {
+          /*
+           *坐标轴，x,y,z
+           */
+            imgs.style.transition = '';
+            //想要一个物体有css3中的动作变化，那就需要给它一个初始值
+            imgs.style.transform = 'rotateX(0deg) translateY(0)';
+            //自执行函数的目的是，为了找到i，否则for循环执行太快，会找不到i
+            (function (i) {
+              setTimeout(function () {
+                montion(imgs[i], '1s', function () {
+                  this.style.opacity = 1;
+                  this.style.transform = 'rotateX(-360deg) translateY(0)'
+                }, function () {
+
+                });
+              }, Math.random() * 1000);
+            })(i);
+
+        }
+
+        //运动函数(运动的对象，运动的时间，运动的属性函数，运动完成后要做的事情)
+        function montion(obj, time, doFn, callBack) {
+          obj.style.transition = time;
+          doFn.call(obj);//调用函数，并且把this的指向给obj
+
+          var called = false;//这里的原因是为了解决transitionend调用多次的bug
+
+          obj.addEventListener('transitionend', function () {
+            if (!called) {
+              callBack && callBack.call(obj);//解决如果没有传入第四个callBack参数的问题
+              called = true;
+            }
+
+          }, false);//事件三阶段，第三个参数决定是在捕获阶段还是冒泡阶段，调用此函数,false代表是在冒泡阶段
+        }
+      }
+    </script>
+</head>
+<body>
+<div id="imgWrap">
+    <img src="https://dummyimage.com/1:1x100&text=1" alt="">
+
+</div>
+<div id="btn">点击查看效果</div>
+</body>
+</html>

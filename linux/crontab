@@ -1,0 +1,11 @@
+crontab --->linux中，周期执行的任务一般由cron这个守护进程来处理。cron读取一个或多个配置文件，这些配置文件中包含了命令行及其调用时间。cron的配置文件称为“crontab”，是“cron table”的简写。
+
+/etc/cron.d --->这个目录用来存放任何要执行的crontab文件或脚本
+
+创建cron脚本  （这操作是直接替换该用户下的crontab，而不是新增）
+第一步：写cron脚本文件,命名为crontest.cron。
+15,30,45,59 * * * * echo "xgmtest....." >> xgmtest.txt  表示，每隔15分钟，执行打印一次命令
+第二步：添加定时任务。执行命令 “crontab crontest.cron”。搞定
+第三步："crontab -l" 查看定时任务是否成功或者检测/var/spool/cron下是否生成对应cron脚本
+
+
