@@ -7,6 +7,27 @@
 6.pm2 logs bisale_wallet_gateway  查看日志是否启动成功
 vim config.json 添加文件config.json--->i 编辑--->esc : wq! 保存
 
+BTC :
+testnet=1
+txindex=1
+server=1
+rest=1
+bytespersigop=999
+datacarriersize=999
+printtoconsole=1
+rpcbind=0.0.0.0
+rpcuser=test
+rpcpassword=123456789
+rpcallowip=0.0.0.0/0
+bind=0.0.0.0
+port=18333
+rpcport=18332
+maxmempool=999
+limitancestorcount=999
+limitdescendantcount=999
+addnode=52.7.233.13
+addnode=188.40.93.205
+addnode=175.156.143.145
 
 测试服务器：
 --------------------------------------------------------------------------
@@ -55,6 +76,11 @@ https://build.bisale.org/
 用户名：jiaxiaohong
 密码：jiaxiaohong
 
+跳板机：ssh root@18.179.202.77
+通过跳板机登陆测试服务器时：
+ssh -i ~/.ssh/wallet.pem centos@10.1.0.152
+sudo su -
+vim ~/.ssh/authorized_keys  (添加跳板机的私钥到测试服务器)
 跳板机：登陆测试环境：ssh jiaxiaohong@52.193.216.93  --->p---->指定项目号码---->sudo su（切换root权限）
 
 ID Hostname                            IP              LoginAs            Comment

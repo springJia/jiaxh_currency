@@ -2,34 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea63a0d5-9ff0-4800-ba3c-53bb3fa5e50c" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/aa.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/linux/crontab" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/工作/_xgt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/钱包-/BTC钱包/BIP" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/钱包-/BTC钱包/btc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/钱包-/ETH以太坊/ETH&amp;erc20说明" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/钱包-/ETH以太坊/eth&amp;erc20钱包开发" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/钱包-/ETH以太坊/keystore文件" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/钱包-/ETH以太坊/parity/centos安装cmake" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/钱包-/ETH以太坊/parity/configs/default.conf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/钱包-/ETH以太坊/parity/configs/private.conf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/钱包-/ETH以太坊/parity/configs/testnet.conf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/钱包-/ETH以太坊/parity/parity客户端" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/钱包-/ETH以太坊/solidity/Faucet.sol" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/钱包-/ETH以太坊/solidity/solidity" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/钱包-/ETH以太坊/智能合约" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/钱包-/GXS" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/钱包-/ETH以太坊/solidity/TruthVote01.sol" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/钱包-/ETH以太坊/solidity/TruthVote02.sol" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/钱包-/ETH以太坊/solidity/crowFunding.sol" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/钱包-/ETH以太坊/solidity/test.sol" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/钱包-/ETH以太坊/web3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/钱包-/节点/DEL节点" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/docker" afterPath="$PROJECT_DIR$/docker" />
+      <change beforePath="$PROJECT_DIR$/git命令行" afterPath="$PROJECT_DIR$/git命令行" />
       <change beforePath="$PROJECT_DIR$/node/Object|this" afterPath="$PROJECT_DIR$/node/Object|this" />
-      <change beforePath="$PROJECT_DIR$/node/es6 babel" afterPath="$PROJECT_DIR$/node/es6 babel" />
-      <change beforePath="$PROJECT_DIR$/node/node关键" afterPath="$PROJECT_DIR$/node/node关键" />
-      <change beforePath="$PROJECT_DIR$/node/常用包" afterPath="$PROJECT_DIR$/node/常用包" />
       <change beforePath="$PROJECT_DIR$/node/数据库/mysql" afterPath="$PROJECT_DIR$/node/数据库/mysql" />
-      <change beforePath="$PROJECT_DIR$/钱包-/ETH&amp;erc20" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/钱包-/btc" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/私钥管理程序seed" afterPath="$PROJECT_DIR$/私钥管理程序seed" />
+      <change beforePath="$PROJECT_DIR$/钱包-/ETH以太坊/ETH&amp;erc20说明" afterPath="$PROJECT_DIR$/钱包-/ETH以太坊/ETH&amp;erc20说明" />
+      <change beforePath="$PROJECT_DIR$/钱包-/ETH以太坊/solidity/Faucet.sol" afterPath="$PROJECT_DIR$/钱包-/ETH以太坊/solidity/Faucet.sol" />
+      <change beforePath="$PROJECT_DIR$/钱包-/ETH以太坊/solidity/solidity" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/钱包-/ETH以太坊/智能合约" afterPath="$PROJECT_DIR$/钱包-/ETH以太坊/智能合约" />
       <change beforePath="$PROJECT_DIR$/钱包-/节点/节点重启和版本更新" afterPath="$PROJECT_DIR$/钱包-/节点/节点重启和版本更新" />
-      <change beforePath="$PROJECT_DIR$/钱包-/节点/货币官网及节点同步工具" afterPath="$PROJECT_DIR$/钱包-/节点/货币官网及节点同步工具" />
       <change beforePath="$PROJECT_DIR$/钱包-/部署相关" afterPath="$PROJECT_DIR$/钱包-/部署相关" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -44,31 +32,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="节点重启和版本更新" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/钱包-/节点/节点重启和版本更新">
+      <file leaf-file-name="ETH&amp;erc20说明" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/钱包-/ETH以太坊/ETH&amp;erc20说明">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="28" lean-forward="false" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
+            <state relative-caret-position="390">
+              <caret line="26" column="64" lean-forward="false" selection-start-line="26" selection-start-column="64" selection-end-line="26" selection-end-column="64" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="钱包" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/钱包-/钱包">
+      <file leaf-file-name="mysql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node/数据库/mysql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="77">
-              <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+            <state relative-caret-position="284">
+              <caret line="67" column="49" lean-forward="true" selection-start-line="67" selection-start-column="49" selection-end-line="67" selection-end-column="49" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="git命令行" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/git命令行">
+      <file leaf-file-name="DASH" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/钱包-/DASH">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="35" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="35" />
+            <state relative-caret-position="15">
+              <caret line="1" column="8" lean-forward="false" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -77,25 +65,55 @@
       <file leaf-file-name="pm2命令" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/node/pm2命令">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="501">
-              <caret line="82" column="179" lean-forward="false" selection-start-line="82" selection-start-column="140" selection-end-line="82" selection-end-column="179" />
+            <state relative-caret-position="120">
+              <caret line="8" column="29" lean-forward="false" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="智能合约" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/钱包-/ETH以太坊/智能合约">
+      <file leaf-file-name="mac" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mac">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="490">
-              <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+            <state relative-caret-position="30">
+              <caret line="2" column="11" lean-forward="false" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="parity客户端" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/钱包-/ETH以太坊/parity/parity客户端">
+      <file leaf-file-name="节点重启和版本更新" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/钱包-/节点/节点重启和版本更新">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="167">
+              <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DEL节点" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/钱包-/节点/DEL节点">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="870">
+              <caret line="58" column="38" lean-forward="false" selection-start-line="58" selection-start-column="38" selection-end-line="58" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="git命令行" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/git命令行">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" column="24" lean-forward="false" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="moogdb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node/数据库/moogdb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -104,41 +122,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="testnet.conf" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/钱包-/ETH以太坊/parity/configs/testnet.conf">
+      <file leaf-file-name="redis" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node/数据库/redis">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="12" lean-forward="true" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="default.conf" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/钱包-/ETH以太坊/parity/configs/default.conf">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="795">
-              <caret line="53" column="14" lean-forward="false" selection-start-line="53" selection-start-column="10" selection-end-line="53" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="private.conf" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/钱包-/ETH以太坊/parity/configs/private.conf">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="14" lean-forward="false" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="部署相关" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/钱包-/部署相关">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="438">
-              <caret line="54" column="15" lean-forward="false" selection-start-line="54" selection-start-column="15" selection-end-line="54" selection-end-column="15" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -159,7 +147,17 @@
       <find>imgs[i]</find>
       <find>图灵完备</find>
       <find>比特币</find>
+      <find>require</find>
+      <find>gas</find>
+      <find>大</find>
+      <find>nonce</find>
+      <find>60</find>
+      <find>tail</find>
+      <find>getTransactionCount</find>
     </findStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -167,9 +165,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/钱包-/DASH" />
-        <option value="$PROJECT_DIR$/pm2命令" />
-        <option value="$PROJECT_DIR$/node/pm2命令" />
         <option value="$PROJECT_DIR$/node/process" />
         <option value="$PROJECT_DIR$/node/Object" />
         <option value="$PROJECT_DIR$/钱包-/usdt" />
@@ -178,16 +173,13 @@
         <option value="$PROJECT_DIR$/钱包-/XRP" />
         <option value="$PROJECT_DIR$/钱包-/XRPFile/set" />
         <option value="$PROJECT_DIR$/钱包-/XRPFile/XRP" />
-        <option value="$PROJECT_DIR$/私钥管理程序seed" />
         <option value="$PROJECT_DIR$/钱包-/TRX(波场币)" />
         <option value="$PROJECT_DIR$/钱包-/XLM" />
         <option value="$PROJECT_DIR$/node/mocha" />
-        <option value="$PROJECT_DIR$/git命令行" />
         <option value="$PROJECT_DIR$/钱包-/钱包" />
         <option value="$PROJECT_DIR$/钱包-/节点/货币官网及节点同步工具" />
         <option value="$PROJECT_DIR$/钱包-/GXS" />
         <option value="$PROJECT_DIR$/aa.html" />
-        <option value="$PROJECT_DIR$/node/数据库/mysql" />
         <option value="$PROJECT_DIR$/钱包-/btc" />
         <option value="$PROJECT_DIR$/node/常用包" />
         <option value="$PROJECT_DIR$/docker" />
@@ -199,18 +191,31 @@
         <option value="$PROJECT_DIR$/linux/crontab" />
         <option value="$PROJECT_DIR$/钱包-/ETH以太坊/eth&amp;erc20钱包开发" />
         <option value="$PROJECT_DIR$/node/es6 babel" />
-        <option value="$PROJECT_DIR$/钱包-/ETH以太坊/智能合约" />
         <option value="$PROJECT_DIR$/node/node关键" />
-        <option value="$PROJECT_DIR$/node/Object|this" />
-        <option value="$PROJECT_DIR$/钱包-/ETH以太坊/ETH&amp;erc20说明" />
         <option value="$PROJECT_DIR$/钱包-/ETH以太坊/keystore文件" />
-        <option value="$PROJECT_DIR$/工作/_xgt" />
-        <option value="$PROJECT_DIR$/钱包-/部署相关" />
-        <option value="$PROJECT_DIR$/钱包-/节点/节点重启和版本更新" />
         <option value="$PROJECT_DIR$/钱包-/ETH以太坊/parity/centos安装" />
         <option value="$PROJECT_DIR$/钱包-/ETH以太坊/parity/configs/testnet.conf" />
         <option value="$PROJECT_DIR$/钱包-/ETH以太坊/parity/configs/default.conf" />
         <option value="$PROJECT_DIR$/钱包-/ETH以太坊/parity/configs/private.conf" />
+        <option value="$PROJECT_DIR$/钱包-/ETH以太坊/parity/parity客户端" />
+        <option value="$PROJECT_DIR$/钱包-/BTC钱包/btc" />
+        <option value="$PROJECT_DIR$/钱包-/ETH以太坊/ETH&amp;erc20说明" />
+        <option value="$PROJECT_DIR$/钱包-/ETH以太坊/solidity/Faucet.sol" />
+        <option value="$PROJECT_DIR$/工作/_xgt" />
+        <option value="$PROJECT_DIR$/钱包-/ETH以太坊/solidity/TruthVote.sol" />
+        <option value="$PROJECT_DIR$/钱包-/ETH以太坊/solidity/TruthVote01.sol" />
+        <option value="$PROJECT_DIR$/钱包-/ETH以太坊/solidity/TruthVote02.sol" />
+        <option value="$PROJECT_DIR$/钱包-/ETH以太坊/solidity/crowFunding.sol" />
+        <option value="$PROJECT_DIR$/钱包-/ETH以太坊/智能合约" />
+        <option value="$PROJECT_DIR$/钱包-/ETH以太坊/solidity/test.sol" />
+        <option value="$PROJECT_DIR$/钱包-/部署相关" />
+        <option value="$PROJECT_DIR$/钱包-/节点/节点重启和版本更新" />
+        <option value="$PROJECT_DIR$/钱包-/ETH以太坊/web3" />
+        <option value="$PROJECT_DIR$/node/Object|this" />
+        <option value="$PROJECT_DIR$/私钥管理程序seed" />
+        <option value="$PROJECT_DIR$/钱包-/节点/DEL节点" />
+        <option value="$PROJECT_DIR$/git命令行" />
+        <option value="$PROJECT_DIR$/node/数据库/mysql" />
       </list>
     </option>
   </component>
@@ -220,10 +225,10 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="189" />
-    <option name="y" value="78" />
-    <option name="width" value="1342" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="244" />
+    <option name="y" value="26" />
+    <option name="width" value="1440" />
     <option name="height" value="877" />
   </component>
   <component name="ProjectView">
@@ -241,7 +246,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -258,6 +263,12 @@
               <item name="jiaxh_currency" type="b2602c69:ProjectViewProjectNode" />
               <item name="jiaxh_currency" type="462c0819:PsiDirectoryNode" />
               <item name="node" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jiaxh_currency" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jiaxh_currency" type="462c0819:PsiDirectoryNode" />
+              <item name="node" type="462c0819:PsiDirectoryNode" />
+              <item name="数据库" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="jiaxh_currency" type="b2602c69:ProjectViewProjectNode" />
@@ -300,13 +311,20 @@
               <item name="jiaxh_currency" type="b2602c69:ProjectViewProjectNode" />
               <item name="jiaxh_currency" type="462c0819:PsiDirectoryNode" />
               <item name="钱包-" type="462c0819:PsiDirectoryNode" />
+              <item name="ETH以太坊" type="462c0819:PsiDirectoryNode" />
+              <item name="solidity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jiaxh_currency" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jiaxh_currency" type="462c0819:PsiDirectoryNode" />
+              <item name="钱包-" type="462c0819:PsiDirectoryNode" />
               <item name="节点" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -354,32 +372,36 @@
       <workItem from="1525244061062" duration="315000" />
       <workItem from="1525244711763" duration="121305000" />
       <workItem from="1528886411528" duration="187014000" />
-      <workItem from="1533888873281" duration="101724000" />
+      <workItem from="1533888873281" duration="162026000" />
+      <workItem from="1535956843274" duration="27000" />
+      <workItem from="1535956932858" duration="21762000" />
+      <workItem from="1536132675599" duration="48695000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="410358000" />
+    <option name="totallyTimeSpent" value="541144000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="189" y="78" width="1342" height="877" extended-state="0" />
+    <frame x="244" y="26" width="1440" height="877" extended-state="1" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27100682" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17899929" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30401236" sideWeight="0.5024665" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24956165" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2674572" sideWeight="0.49753347" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22793148" sideWeight="0.49753347" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -413,57 +435,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/git命令行">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/swagger-ui使用">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="4" lean-forward="false" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docker">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mac">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/钱包-/钱包">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="36" lean-forward="false" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/钱包-/节点/货币官网及节点同步工具">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/钱包-/节点/节点重启和版本更新">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
           <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -471,7 +446,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="930">
           <caret line="62" column="0" lean-forward="true" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -488,13 +462,6 @@
         <state relative-caret-position="165">
           <caret line="11" column="74" lean-forward="false" selection-start-line="11" selection-start-column="74" selection-end-line="11" selection-end-column="74" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node/数据库/redis">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -520,38 +487,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/node/mocha" />
-    <entry file="file://$PROJECT_DIR$/node/数据库/moogdb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/钱包-/usdt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="108" lean-forward="false" selection-start-line="7" selection-start-column="108" selection-end-line="7" selection-end-column="108" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/钱包-/GXS">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="18" lean-forward="false" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mac">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="8" lean-forward="false" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/钱包-/DASH">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="8" lean-forward="false" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -562,13 +501,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/私钥管理程序seed">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/aa.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="936">
@@ -576,35 +508,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node/数据库/mysql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="65" column="23" lean-forward="false" selection-start-line="65" selection-start-column="23" selection-end-line="65" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/docker">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/钱包-/ETH以太坊/solidity/solidity">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node/常用包">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -612,46 +519,134 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
           <caret line="22" column="10" lean-forward="false" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/钱包-/ETH以太坊/parity/configs/private.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="14" lean-forward="false" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/钱包-/ETH以太坊/parity/configs/testnet.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="12" lean-forward="false" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/linux/crontab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="7" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/钱包-/ETH以太坊/parity/configs/default.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="41" column="22" lean-forward="true" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/钱包-/ETH以太坊/solidity/Faucet.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="5" lean-forward="false" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/工作/_xgt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/钱包-/ETH以太坊/solidity/solidity" />
+    <entry file="file://$PROJECT_DIR$/钱包-/ETH以太坊/solidity/TruthVote02.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/钱包-/ETH以太坊/solidity/crowFunding.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="24" lean-forward="false" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/钱包-/ETH以太坊/solidity/TruthVote01.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="34" column="27" lean-forward="false" selection-start-line="34" selection-start-column="27" selection-end-line="34" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/钱包-/ETH以太坊/solidity/test.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/钱包-/ETH以太坊/智能合约">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="6" lean-forward="false" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/钱包-/节点/货币官网及节点同步工具">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/钱包-/BTC钱包/BIP">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="40" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/linux/crontab">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        <state relative-caret-position="75">
+          <caret line="5" column="20" lean-forward="false" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/钱包-/BTC钱包/btc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="9" lean-forward="false" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+        <state relative-caret-position="525">
+          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node/常用包">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="16" lean-forward="false" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/node/es6 babel">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+        <state relative-caret-position="393">
+          <caret line="27" column="18" lean-forward="false" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/钱包-/ETH以太坊/solidity/Faucet.sol">
+    <entry file="file://$PROJECT_DIR$/钱包-/ETH以太坊/web3">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -666,96 +661,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/node/Object|this">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="80" lean-forward="false" selection-start-line="34" selection-start-column="80" selection-end-line="34" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/钱包-/ETH以太坊/eth&amp;erc20钱包开发">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="18" column="31" lean-forward="false" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/钱包-/ETH以太坊/keystore文件">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="81" lean-forward="false" selection-start-line="18" selection-start-column="81" selection-end-line="18" selection-end-column="81" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/工作/_xgt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="54" lean-forward="false" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/钱包-/节点/货币官网及节点同步工具">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/钱包-/ETH以太坊/ETH&amp;erc20说明">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="318" column="0" lean-forward="false" selection-start-line="318" selection-start-column="0" selection-end-line="318" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node/pm2命令">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="82" column="179" lean-forward="false" selection-start-line="82" selection-start-column="140" selection-end-line="82" selection-end-column="179" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/钱包-/节点/节点重启和版本更新">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="28" lean-forward="false" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/钱包-/钱包">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="77">
-          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/git命令行">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="35" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="35" />
+        <state relative-caret-position="468">
+          <caret line="37" column="16" lean-forward="false" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/钱包-/部署相关">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="54" column="15" lean-forward="false" selection-start-line="54" selection-start-column="15" selection-end-line="54" selection-end-column="15" />
+        <state relative-caret-position="285">
+          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/钱包-/ETH以太坊/智能合约">
+    <entry file="file://$PROJECT_DIR$/钱包-/钱包">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+        <state relative-caret-position="945">
+          <caret line="63" column="9" lean-forward="false" selection-start-line="63" selection-start-column="9" selection-end-line="63" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/私钥管理程序seed">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="40" lean-forward="false" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/钱包-/GXS">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="18" lean-forward="false" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
           <folding />
         </state>
       </provider>
@@ -770,32 +709,104 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/钱包-/ETH以太坊/parity/parity客户端">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="6" lean-forward="false" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/钱包-/ETH以太坊/eth&amp;erc20钱包开发">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="46" column="14" lean-forward="false" selection-start-line="46" selection-start-column="14" selection-end-line="46" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/钱包-/ETH以太坊/keystore文件">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="18" column="81" lean-forward="false" selection-start-line="18" selection-start-column="81" selection-end-line="18" selection-end-column="81" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node/pm2命令">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="29" lean-forward="false" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mac">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="11" lean-forward="false" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/钱包-/节点/节点重启和版本更新">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/钱包-/节点/DEL节点">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="870">
+          <caret line="58" column="38" lean-forward="false" selection-start-line="58" selection-start-column="38" selection-end-line="58" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/git命令行">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="24" lean-forward="false" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/钱包-/ETH以太坊/ETH&amp;erc20说明">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="64" lean-forward="false" selection-start-line="26" selection-start-column="64" selection-end-line="26" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node/数据库/moogdb">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/钱包-/ETH以太坊/parity/configs/private.conf">
+    <entry file="file://$PROJECT_DIR$/node/数据库/redis">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="14" lean-forward="false" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/钱包-/ETH以太坊/parity/configs/default.conf">
+    <entry file="file://$PROJECT_DIR$/node/数据库/mysql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="53" column="14" lean-forward="false" selection-start-line="53" selection-start-column="10" selection-end-line="53" selection-end-column="14" />
+        <state relative-caret-position="284">
+          <caret line="67" column="49" lean-forward="true" selection-start-line="67" selection-start-column="49" selection-end-line="67" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/钱包-/ETH以太坊/parity/configs/testnet.conf">
+    <entry file="file://$PROJECT_DIR$/钱包-/DASH">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="12" lean-forward="true" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+        <state relative-caret-position="15">
+          <caret line="1" column="8" lean-forward="false" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
           <folding />
         </state>
       </provider>

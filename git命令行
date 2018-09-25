@@ -12,3 +12,4 @@ git remote -v 查看远程仓库
 git config --file=.gitmodules submodule.src/common.url git@git.bisale.org:wallet/bisale_wallet_common.git
 
 npm publish --tag latest
+

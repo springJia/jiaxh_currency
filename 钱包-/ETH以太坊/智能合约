@@ -16,7 +16,54 @@
 
 7.solidity文档：https://solidity.readthedocs.io/en/latest/
 
-智能合约合约函数格式：
+一.预定义的全局变量和函数:block、msg、tx对象
+msg：+msg+对象是启动合约执行的交易（源自EOA）或消息（源自合约）。它包含许多有用的属性：
+
+msg.sender：我们已经使用过这个。它代表发起消息的地址。如果我们的合约是由EOA交易调用的，那么这是签署交易的地址。
+
+msg.value：与消息一起发送的以太网值。
+
+msg.gas：调用我们的合约的消息中留下的gas量。它已经被弃用，并将被替换为Solidity v0.4.21中的gasleft()函数。
+
+msg.data：调用合约的消息中的数据。
+
+msg.sig：数据的前四个字节，它是函数选择器
+
+*：每当合约调用另一个合约时，msg+的所有属性的值都会发生变化，以反映新的调用者的信息。唯一的例外是在原始+msg+上下文中运行另一个合约/库的代码的 +delegatecall 函数。
+
+交易上下文：   tx.gasprice：发起调用的交易中的gas价格。tx.origin：源自（EOA）的交易的完整调用堆栈
+
+block：包含有关当前块的信息的块对象。
+
+block.coinbase：当前块的矿工地址。
+
+block.difficulty：当前块的难度（Proof-of-Work）。
+
+block.gaslimit：当前块的区块gas限制。
+
+block.number：当前块号（高度）。
+
+block.timestamp：矿工在当前块中放置的时间戳，自Unix纪元（秒）开始。
+
+address.balance：地址的余额，以wei为单位。例如，当前合约余额是 address(this).balance。
+
+address.transfer(amount)：将金额（wei）转移到该地址，并在发生任何错误时抛出异常。我们在+Faucet+示例中的+msg.sender+地址上使用了此函数，msg.sender.transfer()
+
+address.send(amount)：类似于前面的+transfer+, 但是失败时不抛出异常，而是返回+false+。
+
+address.call()：低级调用函数，可以用+value+，data+构造任意消息。错误时返回+false。
+
+address.delegatecall()：低级调用函数，保持发起调用的合约的+msg+上下文，错误时返回+false+。
+
+
+
+
+
+
+
+
+
+二.智能合约合约函数格式：
 
 function FunctionName([parameters]) {public|private|internal|external} [pure|constant|view|payable] [modifiers] [returns (<return types>)]
 
@@ -44,7 +91,7 @@ private函数与内部函数类似，但不能由派生的合约调用（继承�
 ⚠️下一组关键字（pure, constant, view, payable）会影响函数的行为：
 
 constant/view
-标记为_view_的函数，承诺不修改任何状态。术语_constant_是_view_的别名，将被弃用。目前，编译器不强制执行_view_修饰器，只产生一个警告，但这应该成为Solidity v0.5中的强制关键字。
+标记为_view_的函数，承诺不修改任何状态。术语_constant_是_view_的别名，将被弃用。
 
 pure
 纯(pure)函数不读写任何变量。它只能对参数进行操作并返回数据，而不涉及任何存储的数据。纯函数旨在鼓励没有副作用或状态的声明式编程。
@@ -55,11 +102,84 @@ payable函数是可以接受付款的功能。没有payable的函数将拒绝收
 正如你在+Faucet+示例中看到的那样，我们有一个payable函数（fallback函数），它是唯一可以接收付款的函数。
 
 
-⚠️ 合约的生命周期始于EOA或其他合约的创建交易。如果有一个构造函数，它将在相同的创建交易中调用，并可以在创建合约时初始化合约状态。
+⚠️ 构造函数：
+  1).contract MEContract {
+     	function MEContract() {
+     		// This is the constructor
+     	}
+     }
+  2).contract MEContract {
+     	constructor () {
+     		// This is the constructor
+     	}
+     }
+
+合约的生命周期始于EOA或其他合约的创建交易。如果有一个构造函数，它将在相同的创建交易中调用，并可以在创建合约时初始化合约状态。
 
 ⚠️ 合约的销毁：selfdestruct(address recipient);  //该函数采用一个参数：地址以接收合约帐户中剩余的余额
 
-Solidity中的错误由四个函数处理：assert, require, revert, 和 throw（现在已弃用）
+装饰器：其中有一个特殊的语法“占位符”，下划线后跟分号（_;）。此占位符由正在修饰的函数的代码替换。本质上，修饰器“修饰”修饰过的函数，将其代码置于由下划线字符标识的位置
+在修饰函数内部，可以访问被修饰的函数的的所有可见符号（变量和参数）。在这种情况下，我们可以访问在合约中声明的+owner+变量。但是，反过来并不正确：你无法访问修饰函数中的任何变量
+modifier onlyOwner {
+    require(msg.sender == owner);
+    _;
+}
+
+function destroy() public onlyOwner { //修饰器名称要位于关键字+public+之后
+    selfdestruct(owner);
+}
+
+⚠️ 继承(可以多重继承)：
+contract Child is Parent1, Parent2 {
+
+}
+
+⚠️ 事件（Events）
+事件是便于生产交易日志的Solidity构造。当一个交易完成（成功与否）时，它会产生一个 交易收据 transaction receipt，就像我们在 [evm] 中看到的那样。交易收据包含_log_条目，用于提供有关在执行交易期间发生的操作的信息。事件是用于构造这些日志的Solidity高级对象。
+
+⚠️ Solidity中的错误由四个函数处理：assert, require, revert, 和 throw（现在已弃用）
+   require 函数充当_守护条件_，阻止执行函数的其余部分，并在不满足时产生错误。
+
+import "Faucet.sol"
+
+contract Token is mortal {
+	Faucet _faucet;
+
+	constructor() {
+		_faucet = (new Faucet).value(0.5 ether)();
+	}
+	function destroy() ownerOnly {
+    		_faucet.destroy();
+    	}
+}
+
+⚠️ 智能合约设计中最常见的三类问题分类：访问控制（access control），状态流（state flow）*和*资金支出（fund disbursement）
+
+// stores a `Voter` struct for each possible address
+mapping(address => Voter) public voters
+
+//每个地址存储一个是否投票
+mapping (address => bool) hasVoted;
 
 
+⚠️值类型、引用类型在合约中memory／storage关键字的区别。
 
+   1.当引用类型作为函数参数时，它的类型默认为memory，函数参数为memory类型的变量给一个变量赋值时，这个变量的类型必须和函数参数类型一致，
+   所以我们可以写成string memory name1 = name;，或者var name1 = name;，var声明一个变量时，这个变量的类型最终由赋给它值的类型决定。
+
+   任何函数参数当它的类型为引用类型时，这个函数参数都默认为memory类型，memory类型的变量会临时拷贝一份值存储到内存中，当我们将这个参数值赋给一个新的变量，并尝试去修改这个新的变量的值时，最原始的变量的值并不会发生变化
+
+   2.当函数参数为memory类型时，相当于值传递，而storage类型的函数参数将是指针传递。
+
+   当我们的函数参数如果为storage类型时，函数的类型必须为internal或者private
+
+   如：function modifyName(string storage name) internal {
+
+             var name1 = name;
+             bytes(name1)[0] = 'L';
+         }
+
+
+⚠️ Each contract can contain declarations of State Variables, Functions, Function Modifiers, Events, Struct Types and Enum Types.
+
+   struct:

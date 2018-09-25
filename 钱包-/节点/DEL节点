@@ -1,0 +1,77 @@
+挖矿：密码：jxh521125;a7e2d9e9e8a0d56f66abc6f8c4411ef54c4256c1;   jxh125521;171a7f9ca898ef71deacde2a141f29ade221e76a
+
+测试1：
+{ parentXpriv: 'xprv9s21ZrQH143K4NSncMZfe2TMny1RNgsm3FC8iK3de44ppftiDUGAmkQGQLmdSDK64zXwSMGPkY1eUzKcSgBrq67Lt7jDvefVmDYy1Xb167R',
+  path: 'm/44\'/61\'/0\'/0/0',
+  xpriv: 'xprvA2Vg6TsohE5v6bBTcxfBRyGv2YMb9DAT5X8rfoDtff9swYdEs1T8PRyGF31jJdXadJ8e48rcmWkbMYBrJ2JCj3AYZQ6K1YRNggRFAm5sCXX',
+  xpub: 'xpub6FV2VyQhXbeDK5FvizCBo7DeaaC5YftJSk4TUBdWDzgrpLxPQYmNwEHk6KBhgK2nJKmP6jhr5pFMnUkt6yCEGD7NgPkGGrzk2YWdfy8KXgb',
+  address: '0x1a87388dedf345a3c7bc7d74a3c2c27dc201d436',
+  privateKey: '0x169e9dd6f12ccc15dfa247db66af390295a8e8ebd8b87021f017cc4e3befeded',
+  publicKey: '0x02acf2a1e0808ee8a7815d55bbeecd965bae415b0e47ccfe343b31bfc32a319aa4' }
+
+
+热钱包：
+{ parentXpriv: 'xprv9s21ZrQH143K4NSncMZfe2TMny1RNgsm3FC8iK3de44ppftiDUGAmkQGQLmdSDK64zXwSMGPkY1eUzKcSgBrq67Lt7jDvefVmDYy1Xb167R',
+  path: 'm/44\'/61\'/0\'/0/1',
+  xpriv: 'xprvA2Vg6TsohE5v9e8MvXc115LztqR2J9JWDTydpQ9JwNC6zz5ZGn6bn1uM5FpfqTZKiv1vBPwayii26uQHvT9FwMWpLLKuYjmQJfiXPfDpHkT',
+  xpub: 'xpub6FV2VyQhXbeDN8Cq2Z91NDHjSsFWhc2MaguEcnYvVhj5snQhpKQrKpDpvXfNKnqahCNXCXzvZfuKor16wErJLnYTo4XBfNCe3v2bKzsw3on',
+  address: '0x0e4ed39b17096617c8f0bbc1cfe02cdbdbcd447f',
+  privateKey: '0x5e81ec7bb6359b70ea0f552fe2d79ee1af5612027420569b3ec55435b1b6c8a4',
+  publicKey: '0x02c9126dcc67046117f12cc1fca772fa7c62082e365c5ca594300dcfb23a839e61' }
+
+温钱包：
+{ parentXpriv: 'xprv9s21ZrQH143K4NSncMZfe2TMny1RNgsm3FC8iK3de44ppftiDUGAmkQGQLmdSDK64zXwSMGPkY1eUzKcSgBrq67Lt7jDvefVmDYy1Xb167R',
+  path: 'm/44\'/61\'/0\'/0/2',
+  xpriv: 'xprvA2Vg6TsohE5vCH8LxxbLAtACE8sDPmLM9mavb1Q96pso4errPpizm6nXKSW1jhAux5yuNPL8C8g4MZ71Y1tZofjHdLuSDxic738FFjnf992',
+  xpub: 'xpub6FV2VyQhXbeDQmCp4z8LY26vnAhhoE4CWzWXPPokfAQmwTBzwN3FJu71AkLjQzHQ5bxRh8utxEqgJcC3y3nZHNtEx5hNFdePvWE8gSTiszE',
+  address: '0xebe0373e2903948f994bc22dd1e80c293a195399',
+  privateKey: '0x4aa8efe6d126c384ee4930a273504cc2310bf3d812c844ea0566b1c387e8ddb1',
+  publicKey: '0x03bca9c2672e6b9d5aece49eb17f7d319306a138f8000722ac47cec0647a1af151' }
+
+冷钱包：
+{ parentXpriv: 'xprv9s21ZrQH143K4NSncMZfe2TMny1RNgsm3FC8iK3de44ppftiDUGAmkQGQLmdSDK64zXwSMGPkY1eUzKcSgBrq67Lt7jDvefVmDYy1Xb167R',
+  path: 'm/44\'/61\'/0\'/0/3',
+  xpriv: 'xprvA2Vg6TsohE5vDth2mYZ6SKSvpjGbnwiGtcyxQPBAHfdM9F7xCwygEfaWzfEFrNGLf8Y6X7FEjX9HbnK728HJoefrLtQtywwu5YcuAz3b3vk',
+  xpub: 'xpub6FV2VyQhXbeDSNmVsa66oTPfNm76CQS8FquZCmamr1AL23T6kVHvnTtzqvPDM6j7N8ZS2NDLu1WsGUCpy7QzXjq3rBn7GnZPECq7m7RvEf1',
+  address: '0x67bb637e1c7734499ecd3191e8b2a113aaa8dbeb',
+  privateKey: '0x7ebf1b7dade58c8c8dd37b2d7a2a13d453b2d3c6073658d55000b47d08075508',
+  publicKey: '0x028f12d6fa1305d6599c0beda7c63411df2dc847b9a9c7a456a4d00baf3b3a7071' }
+
+1.安装go
+2.git clone DEL ,在当前路径下：go get github.com/DEL-ORG/del/cmd/deld
+                             go install github.com/DEL-ORG/del/cmd/deld
+
+⚠️
+  go install:
+【go install】指令的作用是：编译源代码，如果为可执行文件（package "main"且包含main方法），则会编译生成可执行文件到【$GOPATH/bin】目录下；可执行文件import引入的其他包，就会被编译到【$GOPATH/pkg/$GOOS_$GOARCH】目录下。
+
+  go build:
+   【go build】指令的作用是：在当前目录下编译生成可执行文件。注意，go build指令会调用所有引用包的源码，重新编译，而不是直接使用pkg里的编译后文件，
+   如果在【$GOROOT】与【$GOPATH】下没有找到import引入包的项目源码，就会报错
+
+
+3.启动：进入到del(conf,database)下：启动正式节点 /goWork/bin/deld --rpcport 30333 --datadir "/root/del/database" --rpcaddr 0.0.0.0
+
+  查看网络：url --data-binary '{"jsonrpc":"2.0","id":1,"method":"net_version","params":[]}' -H 'content-type:application/json;' http://127.0.0.1:30333
+
+  查看块高度：curl --data-binary '{"jsonrpc":"2.0","id":1,"method":"eth_blockNumber","params":[]}' -H 'content-type:application/json;' http://127.0.0.1:30333
+
+  本地访问地址：http://18.179.202.77:8082/del
+
+    1./goWork/bin/deld --datadir /root/del/database init init.json
+    {
+      "config"     :{
+            "chainId": 100064,
+            "homesteadBlock": 0,
+            "eip155Block": 0,
+            "eip158Block": 0
+      },
+      "coinbase"   : "0x0000000000000000000000000000000000000000",
+      "difficulty" : "0x200",
+      "gasLimit"   : "0xffffff",
+      "nonce"      : "0x0000000000000042",
+      "mixhash"    : "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "parentHash" : "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "timestamp"  : "0x00",
+      "alloc"      : {}
+    }

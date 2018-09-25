@@ -21,7 +21,7 @@ tar -zxvf cmake-3.12.1.tar.gz && cd cmake-3.12.1 && ./bootstrap --prefix=/usr/lo
         cp target/release/parity /usr/bin/parity1.10.6  将可执行文件放到bin目录
         关闭当前窗口（exit）
         关闭旧版本parity
-        开启新版本parity   在eth窗口下,执行parity1.10.6 -c ......
+        开启新版本parity   在eth窗口下,执行parity1.11.8 -c confs/testnet.conf
         端口默认：
         cat confs/testnet.conf 配置端口
 
@@ -36,6 +36,10 @@ tar -zxvf cmake-3.12.1.tar.gz && cd cmake-3.12.1 && ./bootstrap --prefix=/usr/lo
         启动节点：当前screen当前节点下：
         ./bin/bitcoind  -datadir="/Users/joy/Work/bitcoincash/testnetdata" -conf="/Users/joy/Work/bitcoincash/confs/bitcoin_testnet.conf" (指定路径必须是绝对路径)
 
+        ./src/UlordChain/src/ulordd -datadir="/root/uload/testnetdata" -conf="/root/uload/confs/testnet.conf"
+        ./src/UlordChain/src/ulord-cli -regtest generate 1
+        ./src/UlordChain/src/ulord-cli -regtest getinfo
+
 节点版本部署TRON:
         install jdk 1.8
         git clone java-tron
@@ -46,9 +50,7 @@ tar -zxvf cmake-3.12.1.tar.gz && cd cmake-3.12.1 && ./bootstrap --prefix=/usr/lo
         java -jar java-tron.jar -c config.conf  (修改config.conf配置)
         查看日志：tail -f logs/tron.log/
 
-./src/UlordChain/src/ulordd -datadir="/root/uload/testnetdata" -conf="/root/uload/confs/testnet.conf"
-./src/UlordChain/src/ulord-cli -regtest generate 1
-./src/UlordChain/src/ulord-cli -regtest getinfo
+
 {
   "monitor": "AnnouncementNoticeMonitor",
   "params": {
@@ -69,3 +71,7 @@ tar -zxvf cmake-3.12.1.tar.gz && cd cmake-3.12.1 && ./bootstrap --prefix=/usr/lo
     "noticeUrl":"https://www.huobi.pro/-/x/hb/p/api/contents/pro/list_notice?limit=20&language=zh-cn"
   }
 }
+
+
+curl -H "content-Type:application/json;Authorization:Basic dGVzdDoxMjM0NTY3ODk=" --data-binary '{"jsonrpc":"2.0","method":"getrawtransaction","params":["03f4382c460816f8d536d5aa81bd067f94bb9ed8278eb3c8f202a3bfd2a3a31e"],"id":1}' https://10.1.0.175:18332
+
