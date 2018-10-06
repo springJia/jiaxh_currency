@@ -11,5 +11,16 @@ git remote -v 查看远程仓库
 解决fatal: refusing to merge unrelated histories:===>git pull origin master:master --allow-unrelated-histories
 git config --file=.gitmodules submodule.src/common.url git@git.bisale.org:wallet/bisale_wallet_common.git
 
+Git: git pull
+ git add .
+git commit -m ‘description of the changes I made’
+git push -m master
+git reset —hard (back)
+Git reset —文件名
+git fetch origin master
+git rebase origin/master
+git stash—>git pull—>git stash pop(解决冲突)
+
+
 npm publish --tag latest
 

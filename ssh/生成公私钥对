@@ -1,8 +1,0 @@
-ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
-
-
-启动ssh客户端
-eval "$(ssh-agent -s)"
-
-将私钥添加到ssh客户端
-ssh-add ~/.ssh/id_rsa

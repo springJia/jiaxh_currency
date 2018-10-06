@@ -1,0 +1,96 @@
+mongoose 是在nodejs异步环境下对mongodb进行编辑操作的对象模型工具；
+
+mongoose 三个比较重要的概念：schema、model、entity，他们的关系是：schema生成model，model创造document，model和document都可对数据库操作造成影响，但model比document更具操作性
+
+Schema用于定义数据库的结构。类似创建表时的数据定义(不仅仅可以定义文档的结构和属性，还可以定义文档的实例方法、静态模型方法、复合索引等)，每个Schema会映射到mongodb中的一个collection，Schema不具备操作数据库的能力
+
+Model是由Schema编译而成的构造器，具有抽象属性和行为，可以对数据库进行增删查改。Model的每一个实例（instance）就是一个文档document
+
+注意：
+  通过mongoose.Schema来调用Schema，然后使用new方法来创建schema对象：
+  var mongoose = require('mongoose');
+  var Schema = mongoose.Schema;
+  var mySchema = new Schema({
+  title:  String,
+  author: String,
+  body:   String,
+  comments: [{ body: String, date: Date }],
+  date: { type: Date, default: Date.now },
+  hidden: Boolean,
+  meta: {
+    votes: Number,
+    favs:  Number
+  }
+ });
+ [注意]1.创建Schema对象时，声明字段类型有两种方法，一种是首字母大写的字段类型，另一种是引号包含的小写字段类型
+
+ var mySchema = new Schema({title:String, author:String});
+ //或者
+ var mySchema = new Schema({title:'string', author:'string'});
+
+ 2.如果需要在Schema定义后添加其他字段，可以使用add()方法：
+ var MySchema = new Schema;
+ MySchema.add({ name: 'string', color: 'string', price: 'number' });
+
+ 3.模型Model是根据Schema编译出的构造器，或者称为类，通过Model可以实例化出文档对象document
+ 4.var mongoose = require('mongoose');
+   mongoose.connect("mongodb://u1:123456@localhost/db1", function(err) {
+       if(!err){
+           var schema = new mongoose.Schema({ num:Number, name: String, size: String });
+           var MyModel = mongoose.model('MyModel', schema);
+           var doc1 = new MyModel({ size: 'small' });
+           doc1.save(function (err,doc) {
+           //{ __v: 0, size: 'small', _id: 5970daba61162662b45a24a1 }
+             console.log(doc);
+           })
+       }
+   });
+ 5.实例方法和静态方法的区别在于，静态方法是通过Schema对象的statics属性给model添加方法，实例方法是通过Schema对象的methods是给document添加方法
+ 6.【查询方法】
+
+   　　通过schema对象的query属性，给model添加查询方法
+
+   复制代码
+   var mongoose = require('mongoose');
+   mongoose.connect("mongodb://u1:123456@localhost/db1", function(err) {
+       if(!err){
+           var schema = new mongoose.Schema({ age:Number, name: String});
+           schema.query.byName = function(name){
+               return this.find({name: new RegExp(name)});
+           }
+           var temp = mongoose.model('temp', schema);
+           temp.find().byName('huo').exec(function(err,docs){
+               //[ { _id: 5971f93be6f98ec60e3dc86c, name: 'huochai', age: 27 },
+               // { _id: 5971f93be6f98ec60e3dc86e, name: 'huo', age: 30 } ]
+               console.log(docs);
+           })
+
+       }
+   });
+ 7.常用的方法：
+   find()/findById()/findOne()/findByIdAndUpdate()/fingOneAndUpdate()/update()/updateOne()/findOneAndRemove()
+
+
+   $or　　　　或关系
+   $nor　　　 或关系取反
+   $gt　　　　大于
+   $gte　　　 大于等于
+   $lt　　　　小于
+   $lte　　　 小于等于
+   $ne　　　　不等于
+   $in　　　　在多个值范围内
+   $nin　　　 不在多个值范围内
+   $all　　　 匹配数组中多个值
+   $regex　　 正则，用于模糊查询
+   $size　　　匹配数组大小
+   $maxDistance　范围查询，距离（基于LBS）
+   $mod　　　　取模运算
+   $near　　　 邻域查询，查询附近的位置（基于LBS）
+   $exists　　 字段是否存在
+   $elemMatch　匹配内数组内的元素
+   $within　　　范围查询（基于LBS）
+   $box　　　　 范围查询，矩形范围（基于LBS）
+   $center　　　范围醒询，圆形范围（基于LBS）
+   $centerSphere　范围查询，球形范围（基于LBS）
+   $slice　　　　查询字段集合中的元素（比如从第几个之后，第N到第M个元素
+   $where      如果要进行更复杂的查询，需要使用$where操作符，$where操作符功能强大而且灵活，它可以使用任意的JavaScript作为查询的一部分，包含JavaScript表达式的字符串或者JavaScript函数
