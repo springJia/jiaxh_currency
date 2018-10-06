@@ -1,0 +1,3 @@
+cat ~/id_rsa.pub >> ~/.ssh/authorized_keys
+
+添加进去的邮箱不能重复，否则会认证失败
