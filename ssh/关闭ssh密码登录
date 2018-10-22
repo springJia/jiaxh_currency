@@ -1,0 +1,7 @@
+sudo vim /etc/ssh/sshd_config
+
+将yes改成no
+PasswordAuthentication yes
+
+//重启服务
+service sshd restart

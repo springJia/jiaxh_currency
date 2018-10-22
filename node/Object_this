@@ -31,6 +31,12 @@ version(version, maxLength) {
 作用域：
 apply()/call()/bind()修改作用域；
 new A();//作用域是当前类
+apply：调用一个对象的一个方法，用另一个对象替换当前对象。例如：B.apply(A, arguments);即A对象应用B对象的方法。
+
+call：调用一个对象的一个方法，用另一个对象替换当前对象。例如：B.call(A, args1,ar
+象调用B对象的方法。
+
+
 
 ⚠️ for...in 与 for循环：最好不要用for in循环数组,因为它总是会访问该对象的原型,看下原型上是否有属性,这在无意中就给遍历增加了额外的压力。
 

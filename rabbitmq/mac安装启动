@@ -1,0 +1,5 @@
+brew install rabbitmq
+
+brew services start rabbitmq
+
+根目录：/usr/local/Cellar/rabbitmq/3.7.2/

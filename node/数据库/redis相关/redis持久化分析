@@ -1,0 +1,48 @@
+redis是内存数据库，它把数据存储在内存中，这样在加快读取速度的同时也对数据安全性产生了新的问题，即当
+redis所在服务器发送宕机后，redis数据库里的所有数据将会全部丢失。为了解决这个问题，redis提供了持久化功能--RDB和AOF，
+通俗的讲就是将内存中的数据写入硬盘中
+
+一、持久化之全量写入：RDB
+[redis@6381]$ more /usr/local/redis/conf/redis.conf
+save 900 1
+save 300 10
+save 60 10000
+dbfilename "dump.rdb"          #持久化文件名称
+dir "/data/dbs/redis/6381"    #持久化数据文件存放的路径
+上面是redis配置文件里默认的RDB持久化设置，前三行都是对触发RDB的一个条件，例如第一行的意思是每900秒钟里redis数据库有一条数据被修改则触发RDB，依次类推；只要有一条满足就会调用BGSAVE进行RDB持久化。第四行dbfilename指定了把内存里的数据库写入本地文件的名称，
+该文件是进行压缩后的二进制文件，通过该文件可以把数据库还原到生成该文件时数据库的状态。第五行dir指定了RDB文件存放的目录。
+
+[redis@iZ254r8s3m6Z redis]$ bin/redis-cli
+127.0.0.1:6379> CONFIG GET save         #查看redis持久化配置
+1) "save"
+2) "900 1 300 10 60 10000"
+
+127.0.0.1:6379> CONFIG SET save "21600 1000" #修改redis持久化配置
+OK
+
+而RDB持久化也分两种：SAVE和BGSAVE
+
+      SAVE是阻塞式的RDB持久化，当执行这个命令时redis的主进程把内存里的数据库状态写入到RDB文件（即上面的dump.rdb）中，直到该文件创建完毕的这段时间内redis将不能处理任何命令请求。
+
+      BGSAVE属于非阻塞式的持久化，它会创建一个子进程专门去把内存中的数据库状态写入RDB文件里，同时主进程还可以处理来自客户端的命令请求。但子进程基本是复制的父进程，这等于两个相同大小的redis进程在系统上运行，会造成内存使用率的大幅增加。
+
+
+ 二、持久化之增量写入：AOF
+
+       与RDB的保存整个redis数据库状态不同，AOF是通过保存对redis服务端的写命令（如set、sadd、rpush）来记录数据库状态的，即保存你对redis数据库的写操作，
+       以下就是AOF文件的内容
+
+       AOFP配置：
+       [redis@iZ]$ more ~/redis/conf/redis.conf
+       dir "/data/dbs/redis/6381"           #AOF文件存放目录
+       appendonly yes                       #开启AOF持久化，默认关闭
+       appendfilename "appendonly.aof"      #AOF文件名称（默认）
+       appendfsync no                       #AOF持久化策略   # 更新日志条件，共有3个可选值。no表示等操作系统进行数据缓存同步到磁盘，always表示每次更新操作后手动调用fsync()将数据写到磁盘，everysec表示每秒同步一次（默认值）
+                                                        # appendfsync always
+                                                        appendfsync everysec
+                                                        # appendfsync no
+       auto-aof-rewrite-percentage 100      #触发AOF文件重写的条件（默认）
+       auto-aof-rewrite-min-size 64mb       #触发AOF文件重写的条件（默认）
+
+ 相比RDB每次持久化都会内存翻倍，AOF持久化除了在第一次启用时会新开一个子进程创建AOF文件会大幅度消耗内存外，之后的每次持久化对内存使用都很小。但AOF也有一个不可忽视的问题：AOF文件过大。你对redis数据库的每一次写操作都会让AOF文件里增加一条数据，久而久之这个文件会形成一个庞然大物
+

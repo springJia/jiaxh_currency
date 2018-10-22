@@ -1,0 +1,9 @@
+修改ssh server
+
+.ssh/config, 加入
+
+Host *
+    StrictHostKeyChecking no
+
+然后设置权限
+chmod 400 ~/.ssh/config

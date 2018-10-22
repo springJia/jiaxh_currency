@@ -62,6 +62,10 @@ PM2: advanced,production process manager for node.js  PM2:是先进的node.js生
     restart_delay  异常重启情况下，延时重启时间；
 
 6.常用命令行：
+
+
+
+
 $ npm install pm2 -g     # 命令行安装 pm2
 $ pm2 start app.js -i 4 #后台运行pm2，启动4个app.js
                                 # 也可以把'max' 参数传递给 start

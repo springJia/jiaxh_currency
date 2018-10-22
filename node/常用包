@@ -14,3 +14,25 @@
     X-Content-Type-Options： 防止浏览器使用MIME-sniffing来确定响应的类型，转而使用明确的content-type来确定。
     Content-Security-Policy：防止受到跨站脚本攻击以及其他跨站注入攻击。
 前端请求：axios/fetch
+
+6.amqplib:rabbitmq
+7.mongoose:mongdb
+8.sequlize:mysql/postgres/sQLite
+9.crypto:加密
+ /**
+   * sha256加密
+   * @param str
+   * @returns {buffer}
+   */
+  static sha256ToBuffer (str) {
+    return crypto.createHash('sha256').update(str).digest()
+  }
+
+  /**
+   * sha256加密
+   * @param str
+   * @returns {string}
+   */
+  static sha256ToHex (str) {
+    return crypto.createHash('sha256').update(str).digest('hex')
+  }

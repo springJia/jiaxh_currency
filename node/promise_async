@@ -1,0 +1,27 @@
+promise: nodejs单线程；由于这个“缺陷”，异步执行用回调函数实现：
+
+promise最大的好处是在异步执行的流程中，把执行代码和处理结果的代码清晰地分离：
+
+new Promise(async)---------------------->resolve(){//TODO}
+                  ---------------------->reject(){//TODO}
+          |
+          |
+          |
+          |
+      async(resolve,reject){//TODO
+      }
+
+promise有三种状态，分别是：
+pending:等待中，或者进行中，表示还没有得到结果
+resolve：已完成，表示得到了想要的结果，可以继续执行
+rejected：也表示得到结果，但是不是想要的，所以拒绝继续执行
+
+promise.all :Promise.all接收一个Promise对象组成的数组作为参数，当这个数组所有的Promise对象状态都变成resolved或者rejected的时候，它才会去调用then方法
+promise.race:与Promise.all相似的是，Promise.race都是以一个Promise对象组成的数组作为参数，不同的是，只要当数组中的其中一个Promsie状态变成resolved或者rejected时，就可以调用.then方法了。
+Promise.reduce:顺序执行，并且每次的结果会传递给下一个
+
+
+
+async/await es7
+
+

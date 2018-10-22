@@ -6,3 +6,23 @@ process.exit(非0)表示执行失败，回调函数中，err不为null，err.cod
 var express = require('express');
 var app = express();
 
+__dirname 当前文件所在的完整路径
+process.cwd() 是运行node的工作目录
+path.join:
+
+path.join('/foo', 'bar', 'baz/asdf', 'quux', '..');
+// 返回: '/foo/bar/baz/asdf'
+
+path.parse('/home/user/dir/file.txt');
+// 返回:
+// { root: '/',
+//   dir: '/home/user/dir',
+//   base: 'file.txt',
+//   ext: '.txt',
+//   name: 'file' }
+
+path.basename('/foo/bar/baz/asdf/quux.html');
+// 返回: 'quux.html'
+
+path.basename('/foo/bar/baz/asdf/quux.html', '.html');
+// 返回: 'quux'
